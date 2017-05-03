@@ -1,0 +1,48 @@
+/* Nav */
+
+
+/* Scoreboard */
+.leadersName {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.leadersImage {
+    width: 100px;
+    padding: 5px;
+}
+
+/* Classes */
+
+
+/* Classmates */
+.thumbnail {
+    display: inline-block;
+}
+
+.cmName {
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.cmStats {
+    display: inline-block;
+}
+
+.fa-github {
+    font-size: 30px;
+}
+
+.github {
+    padding: 5px 10px;
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  background-color: #656e7a;
+  color: #fff;
+  width: 100%;
+}
