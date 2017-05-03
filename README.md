@@ -5,14 +5,16 @@ Class points is the middleware for your classroom. Motivate your students to par
 # To Do list
 
 1. Models
-..* User
-..* User-Session
-..* Session
-..* Class
+
+* User
+* User-Session
+* Session
+* Class
  
 2. Routes
-..* API Routes
-..* HTML/handlebars Routes
+
+* API Routes
+* HTML/handlebars Routes
  
 Implementation
 
