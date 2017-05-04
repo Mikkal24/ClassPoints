@@ -29,21 +29,29 @@ table.alltimetb {
 
 
 /* Classmates */
-.thumbnail {
+div.thumbnail {
     display: inline-block;
+    padding: 5px;
+    margin: 5px;
+}
+
+.smImage {
+    padding-top: 5px;
 }
 
 .cmName {
     display: inline-block;
     padding-right: 5px;
+    margin: 0;
+    font-size: 18px;
 }
 
 .cmStats {
-    display: inline-block;
+
 }
 
 .fa-github {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .github {
