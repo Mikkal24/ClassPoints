@@ -24,9 +24,9 @@
 
         </table>
       </div>
-      <div class="col-sm-6" id="thisweek">
-        <h4>This Week's Leaders</h4>
-        <table class="table table-bordered thisweektb">
+      <div class="col-sm-6" id="thismonth">
+        <h4>This Month's Leaders</h4>
+        <table class="table table-bordered thismonthtb">
           <tr>
             <th id="rankth">Rank</th>
             <th id="nameth">Name</th>
@@ -34,7 +34,7 @@
             <th id="ltpth">Lifetime Points</th>
           </tr>
 
-          {{#each thisweekleaders}}
+          {{#each thismonthleaders}}
           <tr>
             <td>{{this.rank}}</td>
             <td>{{this.name}}</td>
@@ -45,9 +45,9 @@
 
         </table>
       </div>
-      <div class="col-sm-6" id="lastweek">
-        <h4>Last Week's Leaders</h4>
-        <table class="table table-bordered lastweektb">
+      <div class="col-sm-6" id="lastmonth">
+        <h4>Last Month's Leaders</h4>
+        <table class="table table-bordered lastmonthtb">
           <tr>
             <th id="rankth">Rank</th>
             <th id="nameth">Name</th>
@@ -55,7 +55,7 @@
             <th id="ltpth">Lifetime Points</th>
           </tr>
           
-          {{#each lastweekleaders}}
+          {{#each lastmonthleaders}}
           <tr>
             <td>{{this.rank}}</td>
             <td>{{this.name}}</td>
