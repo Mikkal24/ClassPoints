@@ -51,8 +51,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Sign In</a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
 
 <div class="container">
@@ -89,4 +89,7 @@
 
 <script type="text/javascript">
  $(".dropdown-toggle").dropdown();
+ $(".dropdown-toggle").on("click", function() {
+   $(".dropdown-toggle").attr("aria-expanded", true);
+ })
 </script>

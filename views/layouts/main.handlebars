@@ -55,7 +55,7 @@
   </div>
 </nav>
 
-{{{ body }}
+{{{ body }}}
 
 <footer>
   <p id="copyright">Copyright &copy; 2017 ClassPoints</p>
@@ -66,4 +66,7 @@
 
 <script type="text/javascript">
  $(".dropdown-toggle").dropdown();
+ $(".dropdown-toggle").on("click", function() {
+   $(".dropdown-toggle").attr("aria-expanded", true);
+ })
 </script>
