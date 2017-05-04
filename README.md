@@ -16,7 +16,7 @@ Class points is the middleware for your classroom. Motivate your students to par
  * API Routes
  * HTML/handlebars Routes
 
-3. Google login handler (or passport?)
+3. [a link](https://github.com/google/google-api-nodejs-client) Google login handler (or passport?)
  
 Implementation??
 
