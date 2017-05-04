@@ -6,18 +6,16 @@ module.exports = function(sequelize, DataTypes) {
     }
   },
     {
-      // We're saying that we want our SessionUser table to have user and session foreign keys
+      //  Our SessionUser table has user and session foreign keys
       classMethods: {
         associate: function(models) {
-          // An Author (foreignKey) is required or a Post can't be made
-          SessionUser.belongsTo(models.Session, {
-            foreignKey: {
-              allowNull: false
-            }
-          });
+          // A Session (foreignKey) is added
+          SessionUser.belongsTo(models.Session, {foreignKey: "sessionId"});
+          // A User (foreignKey) is added
+          SessionUser.belongsTo(models.User, {foreignKey: "userId"});
         }
       }
     }
   );
-  return Post;
+  return SessionUser;
 };

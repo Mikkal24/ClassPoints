@@ -13,15 +13,11 @@ module.exports = function(sequelize, DataTypes) {
     }
   },
     {
-      // Associate a foreign key from the session model to the class model.
+      // Associate a foreign key from the class model to the session model.
       classMethods: {
         associate: function(models) {
-          // An class (foreignKey) is required or a Session can't be made
-          Session.belongsTo(models.Class, {
-            foreignKey: {
-              allowNull: false
-            }
-          });
+          // A class (foreignKey)
+          Session.belongsTo(models.Class, {foreignKey: "classId"});
         }
       }
     }
