@@ -1,31 +1,31 @@
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John','Doe',0,'johndoe@gmail.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John1','Doe1',0,'johndoe@gmail1.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John2','Doe2',0,'johndoe@gmail2.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John3','Doe3',0,'johndoe@gmail3.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John4','Doe4',0,'johndoe@gmail4.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John5','Doe5',0,'johndoe@gmail5.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John6','Doe6',0,'johndoe@gmail6.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John7','Doe7',0,'johndoe@gmail7.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John8','Doe8',0,'johndoe@gmail8.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John9','Doe9',0,'johndoe@gmail9.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John10','Doe10',0,'johndoe@gmail10.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John11','Doe11',0,'johndoe@gmail11.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John12','Doe12',0,'johndoe@gmail12.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John13','Doe13',0,'johndoe@gmail13.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John14','Doe14',0,'johndoe@gmail14.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John15','Doe15',0,'johndoe@gmail15.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John16','Doe16',0,'johndoe@gmail16.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John17','Doe17',0,'johndoe@gmail17.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John18','Doe18',0,'johndoe@gmail18.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John19','Doe19',0,'johndoe@gmail19.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John20','Doe20',0,'johndoe@gmail20.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John21','Doe21',0,'johndoe@gmail21.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John22','Doe22',0,'johndoe@gmail22.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John23','Doe23',0,'johndoe@gmail23.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John24','Doe24',0,'johndoe@gmail24.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John25','Doe25',0,'johndoe@gmail25.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John26','Doe26',0,'johndoe@gmail26.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John27','Doe27',0,'johndoe@gmail27.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John28','Doe28',0,'johndoe@gmail28.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John29','Doe29',0,'johndoe@gmail29.com');
-INSERT INTO User (fName,lName,isAdmin,email) VALUES ('John30','Doe30',0,'johndoe@gmail30.com');
+INSERT INTO User (fName, lName, isAdmin, email) VALUES ('John', 'Doe', 0, 'johndoe@gmail.com'),
+('John1', 'Doe1', 0, 'johndoe@gmail1.com'),
+('John2', 'Doe2', 0, 'johndoe@gmail2.com'),
+('John3', 'Doe3', 0, 'johndoe@gmail3.com'),
+('John4', 'Doe4', 0, 'johndoe@gmail4.com'),
+('John5', 'Doe5', 0, 'johndoe@gmail5.com'),
+('John6', 'Doe6', 0, 'johndoe@gmail6.com'),
+('John7', 'Doe7', 0, 'johndoe@gmail7.com'),
+('John8', 'Doe8', 0, 'johndoe@gmail8.com'),
+('John9', 'Doe9', 0, 'johndoe@gmail9.com'),
+('John10', 'Doe10', 0, 'johndoe@gmail10.com'),
+('John11', 'Doe11', 0, 'johndoe@gmail11.com'),
+('John12', 'Doe12', 0, 'johndoe@gmail12.com'),
+('John13', 'Doe13', 0, 'johndoe@gmail13.com'),
+('John14', 'Doe14', 0, 'johndoe@gmail14.com'),
+('John15', 'Doe15', 0, 'johndoe@gmail15.com'),
+('John16', 'Doe16', 0, 'johndoe@gmail16.com'),
+('John17', 'Doe17', 0, 'johndoe@gmail17.com'),
+('John18', 'Doe18', 0, 'johndoe@gmail18.com'),
+('John19', 'Doe19', 0, 'johndoe@gmail19.com'),
+('John20', 'Doe20', 0, 'johndoe@gmail20.com'),
+('John21', 'Doe21', 0, 'johndoe@gmail21.com'),
+('John22', 'Doe22', 0, 'johndoe@gmail22.com'),
+('John23', 'Doe23', 0, 'johndoe@gmail23.com'),
+('John24', 'Doe24', 0, 'johndoe@gmail24.com'),
+('John25', 'Doe25', 0, 'johndoe@gmail25.com'),
+('John26', 'Doe26', 0, 'johndoe@gmail26.com'),
+('John27', 'Doe27', 0, 'johndoe@gmail27.com'),
+('John28', 'Doe28', 0, 'johndoe@gmail28.com'),
+('John29', 'Doe29', 0, 'johndoe@gmail29.com'),
+('John30', 'Doe30', 0, 'johndoe@gmail30.com');

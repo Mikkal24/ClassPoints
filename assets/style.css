@@ -1,36 +1,57 @@
 /* Nav */
-
-
-/* Scoreboard */
-.leadersName {
-    display: inline-block;
-    vertical-align: middle;
+nav.navbar {
+    border-radius: 0;
 }
 
-.leadersImage {
-    width: 100px;
-    padding: 5px;
+a.navbar-brand {
+    padding: 19.5px 25px
+}
+
+/* Scoreboard */
+table.table-bordered {
+    text-align: center;
+}
+
+#rankth, #scoreth, #ltpth, #joinedth {
+    text-align: center; 
+}
+
+#nameth {
+    width: 40%;
+    text-align: center; 
+}
+
+table.alltimetb {
+    margin-bottom: 30px;
 }
 
 /* Classes */
 
 
 /* Classmates */
-.thumbnail {
+div.thumbnail {
     display: inline-block;
+    padding: 5px;
+    margin: 5px;
+}
+
+.smImage {
+    padding-top: 5px;
 }
 
 .cmName {
     display: inline-block;
     padding-right: 5px;
+    margin: 0;
+    font-size: 18px;
 }
 
 .cmStats {
-    display: inline-block;
+
 }
 
 .fa-github {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .github {
@@ -42,7 +63,11 @@ footer {
   position: fixed;
   bottom: 0;
   text-align: center;
-  background-color: #656e7a;
+  background-color: #333;
   color: #fff;
   width: 100%;
+}
+
+#copyright {
+    margin: 5px 0;
 }
