@@ -1,23 +1,17 @@
 module.exports = function(sequelize, DataTypes) {
   var Session = sequelize.define("Session", {
-    topic: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false,
+    Points: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false
     }
   },
     {
-      // Associate a foreign key from the class model to the session model.
+      // Associate a foreign key from the class and user models to the session model.
       classMethods: {
         associate: function(models) {
-          // A class (foreignKey)
+          // Foreign keys are added
           Session.belongsTo(models.Class, {foreignKey: "classId"});
+          Session.belongsTo(models.User, {foreignKey: "userId"});
         }
       }
     }
