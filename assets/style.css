@@ -26,6 +26,23 @@ table.alltimetb {
 }
 
 /* Classes */
+div.classcards {
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    width: 200px;
+    height: 130px;
+}
+
+div.classcards:hover {
+    border: 1px solid red;
+}
+
+.className {
+    font-size: 20px;
+    padding-right: 5px;
+    margin: 0;
+}
 
 
 /* Classmates */
