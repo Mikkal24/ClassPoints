@@ -1,8 +1,8 @@
-module.exports = function(sequelize, Datatypes) {
+module.exports = function(sequelize, DataTypes) {
 	var User = sequelize.define("User",{
 		fName: {
 			//stores first name (at least 3 letters)
-			type: Datatypes.STRING,
+			type: DataTypes.STRING,
 			allowNull: false,
 			validate: {
 				len:[3]
@@ -10,7 +10,7 @@ module.exports = function(sequelize, Datatypes) {
 		},
 		lName: {
 			//stores last name (at least 3 letters)
-			type: Datatypes.String,
+			type: DataTypes.STRING,
 			allowNull: false,
 			validate: {
 				len:[3]
@@ -18,12 +18,12 @@ module.exports = function(sequelize, Datatypes) {
 		},
 		isAdmin: {
 			//determines if administrator (used for conditionals)
-			type: Datatypes.Boolean,
+			type: DataTypes.BOOLEAN,
 			allowNull: false,
 		},
 		email: {
 			//stores email obviously
-			type: Datatypes.String,
+			type: DataTypes.STRING,
 			allowNull: false,
 			validate: {
 				len:[5]
