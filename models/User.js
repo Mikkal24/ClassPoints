@@ -28,6 +28,14 @@ module.exports = function(sequelize, DataTypes) {
 			validate: {
 				len:[5]
 			}
+		},
+		gitLink: {
+			//stores github link obviously
+			type: DataTypes.STRING,
+			allowNull: true,
+			validate: {
+				len:[5]
+			}
 		}
 	},
 	{
