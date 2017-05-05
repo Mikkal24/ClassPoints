@@ -1,19 +1,28 @@
 module.exports = function(sequelize, DataTypes) {
   var Class = sequelize.define("Class", {
-    instructor: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-    subject: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false
     }
-  });
+  },
+    {
+      classMethods: {
+        associate: function(models) {
+          // One to many relationship to our session table
+          Class.hasMany(models.Session, {
+            foreignKey: {
+              allowNull: false
+            }
+          });
+        }
+      }
+    });
   return Class;
 };

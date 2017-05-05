@@ -29,7 +29,18 @@ module.exports = function(sequelize, DataTypes) {
 				len:[5]
 			}
 		}
-	});
-
+	},
+	{
+      classMethods: {
+        associate: function(models) {
+        //   one to many relationship to our session table
+          User.hasMany(models.Session, {
+            foreignKey: {
+              allowNull: false
+            }
+          });
+        }
+      }
+    });
 	return User;
 }
