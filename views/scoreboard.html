@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="../assets/style.css">
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!--jQuery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -38,7 +38,7 @@
         <li><a href="#">Classes</a></li>
         <li><a href="#">Classmates</a></li>
         <li role="presentation" class="dropdown">
-          <a data-target="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Classmates <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Classmates <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">M/W/S</a></li>
             <li><a href="#">T/Th/S</a></li>
@@ -54,22 +54,6 @@
     </div>
   </div>
 </nav>
-
-<div class="container">
-  <h2>Dropdown Example</h2>
-  <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Dropdown Example
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
-      <li role="presentation" class="divider"></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>    
-    </ul>
-  </div><br>
-  <p><strong>Note:</strong> The data-toggle="dropdown" attribute is required regardless of whether you call the dropdown() method.</p>
-</div>
 
 <div class="container">
   <div class="row">
@@ -172,12 +156,6 @@
 <footer>
   <p id="copyright">Copyright &copy; 2017 ClassPoints</p>
 </footer>
-
-<script>
-$(document).ready(function(){
-    $(".dropdown-toggle").dropdown();
-});
-</script>
 
 </body>
 </html>
