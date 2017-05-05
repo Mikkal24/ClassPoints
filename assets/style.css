@@ -1,6 +1,7 @@
 /* Nav */
 nav.navbar {
     border-radius: 0;
+    margin-bottom: 0;
 }
 
 a.navbar-brand {
@@ -44,6 +45,42 @@ div.classcards:hover {
     margin: 0;
 }
 
+/* Sessions */
+div.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+}
+
+.nav-sidebar {
+    margin: 5px;
+}
+
+.rankingname {
+    display: inline-block;
+    font-size: 20px;
+}
+
+.rankingpoint {
+    display: inline-block;
+}
+
+div.main {
+    margin-top: 70px;
+    padding: 0;
+}
+
+div.studentcards {
+    width: 180px;
+}
+
+.studentname {
+    font-size: 16px;
+    margin: 0;
+    display: inline-block;
+    padding-right: 5px;
+}
 
 /* Classmates */
 div.thumbnail {
