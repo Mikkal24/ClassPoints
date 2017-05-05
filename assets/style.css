@@ -1,3 +1,12 @@
+h3 {
+    margin: 10px 0;
+}
+
+div.mainbody {
+    margin-top: 30px;
+    margin-bottom: 50px
+}
+
 /* Nav */
 nav.navbar {
     border-radius: 0;
@@ -11,6 +20,10 @@ a.navbar-brand {
 /* Scoreboard */
 table.table-bordered {
     text-align: center;
+}
+
+.leadertitles {
+    margin: 10px 0;
 }
 
 #rankth, #scoreth, #ltpth, #joinedth {
