@@ -1,17 +1,37 @@
 var express = require('express');
-var router = express.Router();
-var User = require('../models/User.js');
+var db = require("../models");
 
-router.get("/", function(req,res){
+module.exports = function(app){
+	app.get("/user", function(req,res){
+		//gets called when the main page loads probably
+		var students = []
+		db.User.findAll({}).then(function(data){
+			res.json(data);
+			//how should we filter out the student that is already logged in?
+		})
 
-});
+	});
 
-router.post("/", function(req,res){
+	app.get("/user/login", function(req,res){
+		//gets called when the user logs in (finds their user record essentially)
+		db.user.findOne({
+			where: {
+				//email is probably the most unique thing about the log in page?
+				email: req.params.email,
+			}
+		}).then(function(data){
+			var hbsObject = [data]
 
-});
+			res.render("index",hbsObject)
+		})
+	})
 
-router.put("/:id", function(req,res){
+	app.post("/user", function(req,res){
 
-});
+	});
 
-module.exports = router;
+	app.put("/user/:id", function(req,res){
+
+	});
+
+};
