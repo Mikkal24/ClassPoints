@@ -21,6 +21,7 @@ app.set("view engine","handlebars");
 
 
 require("./controllers/users_controller.js")(app);
+require("./controllers/passport_controller.js")(app);
 require("./controllers/html-routes")(app);
 
 db.sequelize.sync({force:true}).then(function() {
