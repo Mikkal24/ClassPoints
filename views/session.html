@@ -19,7 +19,7 @@
 <body>
 
 <!-- Nav Bar -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -35,130 +35,110 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="leaderboard.html">Leaderboard <span class="sr-only">(current)</span></a></li>
-        <li><a href="classes.html">Classes</a></li>
-        <li class="active"><a href="classmates.html">Classmates</a></li>
+        <li class="active"><a href="classes.html">Classes</a></li>
+        <li><a href="classmates.html">Classmates</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="signin.html">Sign In</a></li>
+        <li><a href="#">Sign In</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="container mainbody">
+<div class="container">
     <div class="row">
-        <div class="col-sm-12">
-            <div class="thumbnail">
+        <div class="col-sm-3 sidebar" style="background-color: #d3d3d3">
+            <h3>Current Ranking</h3>
+            <ul class="nav nav-sidebar">
+                <li class="rankinglist">
+                    <p class="rankingname">Will Hansen</p>
+                    <p class="rankingpoint">50</p>
+                </li>
+                <li class="rankinglist">
+                    <p class="rankingname">Will Hansen</p>
+                    <p class="rankingpoint">50</p>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 main">
+            <div class="thumbnail studentcards">
                 <img src="http://placehold.it/200x150" alt="" class="smImage"/>
                 <div class="caption">
-                <h3 class="cmName">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 3 | LTP: 300</p>
+                <h3 class="studentname">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
+                <p class="cmStats">Points: 100</p>
                 <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                 </div>
             </div>
-            <div class="thumbnail">
+            <div class="thumbnail studentcards">
                 <img src="http://placehold.it/200x150" alt="" class="smImage"/>
                 <div class="caption">
-                <h3 class="cmName">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 2 | LTP: 250</p>
+                <h3 class="studentname">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
+                <p class="cmStats">Points: 100</p>
                 <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                 </div>
             </div>
-            <div class="thumbnail">
+            <div class="thumbnail studentcards">
                 <img src="http://placehold.it/200x150" alt="" class="smImage"/>
                 <div class="caption">
-                <h3 class="cmName">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 3 | LTP: 300</p>
+                <h3 class="studentname">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
+                <p class="cmStats">Points: 100</p>
                 <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                 </div>
             </div>
-            <div class="thumbnail">
+            <div class="thumbnail studentcards">
                 <img src="http://placehold.it/200x150" alt="" class="smImage"/>
                 <div class="caption">
-                <h3 class="cmName">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 2 | LTP: 250</p>
+                <h3 class="studentname">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
+                <p class="cmStats">Points: 100</p>
                 <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                 </div>
             </div>
-            <div class="thumbnail">
+            <div class="thumbnail studentcards">
                 <img src="http://placehold.it/200x150" alt="" class="smImage"/>
                 <div class="caption">
-                <h3 class="cmName">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 3 | LTP: 300</p>
+                <h3 class="studentname">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
+                <p class="cmStats">Points: 100</p>
                 <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                 </div>
             </div>
-            <div class="thumbnail">
+            <div class="thumbnail studentcards">
                 <img src="http://placehold.it/200x150" alt="" class="smImage"/>
                 <div class="caption">
-                <h3 class="cmName">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 2 | LTP: 250</p>
+                <h3 class="studentname">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
+                <p class="cmStats">Points: 100</p>
                 <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                 </div>
             </div>
-            <div class="thumbnail">
+            <div class="thumbnail studentcards">
                 <img src="http://placehold.it/200x150" alt="" class="smImage"/>
                 <div class="caption">
-                <h3 class="cmName">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 3 | LTP: 300</p>
+                <h3 class="studentname">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
+                <p class="cmStats">Points: 100</p>
                 <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                 </div>
             </div>
-            <div class="thumbnail">
+            <div class="thumbnail studentcards">
                 <img src="http://placehold.it/200x150" alt="" class="smImage"/>
                 <div class="caption">
-                <h3 class="cmName">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 2 | LTP: 250</p>
+                <h3 class="studentname">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
+                <p class="cmStats">Points: 100</p>
                 <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                 </div>
             </div>
-            <div class="thumbnail">
+            <div class="thumbnail studentcards">
                 <img src="http://placehold.it/200x150" alt="" class="smImage"/>
                 <div class="caption">
-                <h3 class="cmName">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 3 | LTP: 300</p>
+                <h3 class="studentname">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
+                <p class="cmStats">Points: 100</p>
                 <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                 </div>
             </div>
-            <div class="thumbnail">
+            <div class="thumbnail studentcards">
                 <img src="http://placehold.it/200x150" alt="" class="smImage"/>
                 <div class="caption">
-                <h3 class="cmName">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 2 | LTP: 250</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-
-            <div class="thumbnail">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="cmName">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 3 | LTP: 300</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-            <div class="thumbnail">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="cmName">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 2 | LTP: 250</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-            <div class="thumbnail">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="cmName">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 3 | LTP: 300</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-            <div class="thumbnail">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="cmName">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: 2 | LTP: 250</p>
+                <h3 class="studentname">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
+                <p class="cmStats">Points: 100</p>
                 <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                 </div>
             </div>
