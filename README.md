@@ -17,7 +17,7 @@ Class points is the middleware for your classroom. Motivate your students to par
  * HTML/handlebars Routes
 
 3. [Google login handler](https://developers.google.com/identity/sign-in/web/sign-in) 
-   [Passport] (http://passportjs.org/)
+   [Passport](http://passportjs.org/)
  
 Implementation??
 
