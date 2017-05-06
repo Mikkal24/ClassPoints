@@ -1,6 +1,9 @@
 var express = require ('express');
 var methodOverride = require ('method-override');
 var bodyParser = require ('body-parser');
+var passport = require('passport')
+var session  = require("express-session");
+var cookieParser = require("cookie-parser");
 
 var PORT = 8080;
 
@@ -17,6 +20,15 @@ var exphbs = require("express-handlebars");
 
 app.engine("handlebars",exphbs({defaultLayout: "main"}));
 app.set("view engine","handlebars");
+
+//PASSPORT REQUIREMENTS
+ // app.use(express.static('public'));
+  app.use(cookieParser());
+  //app.use(express.bodyParser());
+  app.use(session({ secret: 'keyboard cat' }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+  //app.use(app.router);
 
 
 

@@ -1,5 +1,6 @@
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var db = require("../models");
 
 // Use the GoogleStrategy within Passport.
 //   Strategies in Passport require a `verify` function, which accept
@@ -12,11 +13,22 @@ var GOOGLE_CLIENT_SECRET = "BtEiMzY18rOgPscPn2RtDxmB";
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://mstudiospace.com/"
+    callbackURL: "http://localhost:8080/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-       User.findOrCreate({ googleId: profile.id }, function (err, user) {
-         return done(err, user);
+    var User = db.User;
+    console.log(accessToken);
+    console.log(profile.id);
+       User.findOrCreate({ where: {googleId: profile.id }, defaults: {
+        fName: "Michael",
+        lName: "Sorensen",
+        isAdmin: false,
+        email: "voltx180@gmail.com"
+       }}).then(function(data) {
+         passport.serializeUser(function(user, done) {
+          done(null, data.id);
+          });
+         return done (null,data);
        });
   }
 ));

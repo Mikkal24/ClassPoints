@@ -36,6 +36,9 @@ module.exports = function(sequelize, DataTypes) {
 			validate: {
 				len:[5]
 			}
+		},
+		googleId: {
+			type: DataTypes.DOUBLE
 		}
 	},
 	{
