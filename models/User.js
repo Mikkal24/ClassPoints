@@ -9,11 +9,11 @@ module.exports = function(sequelize, DataTypes) {
 			}
 		},
 		lName: {
-			//stores last name (at least 3 letters)
+			//stores last name (at least 2 letters)
 			type: DataTypes.STRING,
 			allowNull: false,
 			validate: {
-				len:[3]
+				len:[2]
 			}
 		},
 		isAdmin: {
