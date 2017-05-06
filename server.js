@@ -1,7 +1,7 @@
 var express = require ('express');
 var methodOverride = require ('method-override');
 var bodyParser = require ('body-parser');
-// var http = require('http');
+
 
 var PORT = 8080;
 
@@ -45,11 +45,12 @@ ioProm.then(function(io) {
 });
 
 
+
+
 require("./controllers/users_controller.js")(app);
 require("./controllers/class_controller.js")(app);
 require("./controllers/html-routes")(app);
 require("./controllers/session_controller.js")(app);
-
 
 
 db.sequelize.sync({}).then(function() {
