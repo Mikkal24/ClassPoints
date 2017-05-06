@@ -33,10 +33,15 @@ app.set("view engine","handlebars");
 
 
 require("./controllers/users_controller.js")(app);
+<<<<<<< HEAD
 require("./controllers/passport_controller.js")(app);
+=======
+require("./controllers/class_controller.js")(app);
+>>>>>>> 52cc3705d1ab47724db60c24f49ef8b97a5efd40
 require("./controllers/html-routes")(app);
 
-db.sequelize.sync({force:true}).then(function() {
+
+db.sequelize.sync({}).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

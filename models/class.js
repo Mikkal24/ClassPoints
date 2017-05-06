@@ -8,8 +8,18 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false
+    },
+    createdAt: {
+      defaultValue: DataTypes.NOW,
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      defaultValue: DataTypes.NOW,
+      type: DataTypes.DATE,
+      allowNull: true
     }
   },
     {

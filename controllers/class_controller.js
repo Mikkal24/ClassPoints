@@ -8,8 +8,12 @@ var db = require("../models");
 module.exports = function(app) {
 
   // class route renders class page
-  app.get("/class", function(req, res) {
-    res.render("index",hbsObject)
+  app.get("/classes", function(req, res) {
+    db.Class.findAll({}).then(function(data) {
+      var hbsObject = {
+        classes: data
+      };
+      res.render("classes", hbsObject);
+    })
   });
-
 };
