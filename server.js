@@ -22,6 +22,7 @@ app.set("view engine","handlebars");
 
 require("./controllers/users_controller.js")(app);
 require("./controllers/html-routes")(app);
+require("./controllers/session_controller.js")(app);
 
 db.sequelize.sync({force:true}).then(function() {
   app.listen(PORT, function() {
