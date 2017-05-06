@@ -38,6 +38,7 @@ ioProm.then(function(io) {
  
             // Send data back to different listener
             socket.emit('outgoing', data);
+            // io.sockets.socket(1).emit("test")
         });
     });
 });
@@ -51,7 +52,8 @@ require("./controllers/session_controller.js")(app);
 
 
 db.sequelize.sync({}).then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+  // app.listen(PORT, function() {
+  //   console.log("App listening on PORT " + PORT);
+  // });
+  console.log("DB connected");
 });
