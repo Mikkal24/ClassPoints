@@ -46,11 +46,22 @@
   </div>
 </nav>
 
+<h1> CREATE ACCOUNT </h1>
+<form class = "create-form" action="/user/newUser" method = "POST">
+    <div class= "form-group">
+      <input type="text" id="fname" name="fName">
+      <input type="text" id="lname" name="lName">
+      <input type="text" id="email" name="email">
+    <div>
+    <button type="submit">Create Account</button>
+</form>
 
-<form class = "create-form">
+<h1> LOG IN </h1>
+<form class = "create-form" action="/user/login" method = "GET">
     <div class= "form-group">
       <input type="text" id="email" name="email">
     <div>
+    <button type="submit">log in </button>
 </form>
 
 <footer>
