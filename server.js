@@ -33,13 +33,17 @@ ioProm.then(function(io) {
     
     io.on('connection', function(socket) {
         console.log('Connected!');
-        console.log(socket);
+
         socket.on('incoming', function(data) {
             // Do stuff with data
  
             // Send data back to different listener
             socket.emit('outgoing', data);
             // io.sockets.socket(1).emit("test")
+        });
+
+        socket.on('disconnect', function() {
+          console.log('Got disconnect!');
         });
     });
 });
@@ -51,7 +55,7 @@ require("./controllers/users_controller.js")(app);
 require("./controllers/class_controller.js")(app);
 require("./controllers/html-routes")(app);
 require("./controllers/session_controller.js")(app);
-
+require("./controllers/api-controller.js")(app);
 
 db.sequelize.sync({}).then(function() {
   // app.listen(PORT, function() {

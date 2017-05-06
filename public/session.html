@@ -21,7 +21,22 @@
 <script>
   var socket = io();
 //   socket.ids = 1;
-  console.log(socket);
+  socket.emit('incoming', "this is a test");
+
+  socket.on('outgoing', function(msg){
+      console.log(msg);
+    });
+
+    function addUser(userId){
+
+    };
+    function removeUser(userId){
+
+    };
+
+    $.get("/api/user", {userId: 1}, function(data){
+        alert("Data: " + data);
+    });
 </script>
 
 <body>
