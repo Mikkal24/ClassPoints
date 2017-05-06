@@ -33,6 +33,7 @@ ioProm.then(function(io) {
     
     io.on('connection', function(socket) {
         console.log('Connected!');
+        console.log(socket);
         socket.on('incoming', function(data) {
             // Do stuff with data
  
