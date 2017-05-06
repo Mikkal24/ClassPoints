@@ -1,9 +1,9 @@
-INSERT INTO User (fName, lName, isAdmin, email, gitLink) VALUES ('Will', 'Hansen', 0, 'willhansen@gmail.com', 'https://github.com/WillCHansen'),
+INSERT INTO Users (fName, lName, isAdmin, email, gitLink) VALUES ('Will', 'Hansen', 0, 'willhansen@gmail.com', 'https://github.com/WillCHansen'),
 ('Michael', 'Sorensen', 0, 'michaelsorensen@gmail.com', 'https://github.com/Mikkal24'),
 ('Jenny', 'Chu', 0, 'jennychu@gmail.com', 'https://github.com/jennychusd');
 
 
-INSERT INTO User (fName, lName, isAdmin, email) VALUES ('Andrew', 'Litte', 0, 'andrewlittle@gmail.com'),
+INSERT INTO Users (fName, lName, isAdmin, email) VALUES ('Andrew', 'Litte', 0, 'andrewlittle@gmail.com'),
 ('Alex', 'Nichols', 0, 'alexnichols@gmail.com'),
 ('Blake', 'Weisgarber', 0, 'blakeweisgarber@gmail.com'),
 ('Colin', 'Stone', 0, 'colinstone@gmail.com'),
