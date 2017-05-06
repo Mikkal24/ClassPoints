@@ -9,7 +9,10 @@ module.exports = function(app) {
 
   // class route renders class page
   app.get("/class", function(req, res) {
-    res.render("index",hbsObject)
+    db.Classes.findAll({}).then(function(dbClasses) {
+      res.json(dbClasses);
+    })
+    // res.render("index",hbsObject)
   });
 
 };
