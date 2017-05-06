@@ -19,6 +19,7 @@ module.exports = function(sequelize, DataTypes) {
 		isAdmin: {
 			//determines if administrator (used for conditionals)
 			type: DataTypes.BOOLEAN,
+			defaultValue: 0,
 			allowNull: false,
 		},
 		email: {
@@ -27,6 +28,14 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false,
 			validate: {
 				len:[5]
+			}
+		},
+		picture: {
+			//stores users' picture
+			type: DataTypes.STRING,
+			allowNull: true,
+			validate: {
+				len:[10]
 			}
 		},
 		gitLink: {
@@ -39,7 +48,17 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		googleId: {
 			type: DataTypes.DOUBLE
-		}
+		},
+    createdAt: {
+      defaultValue: DataTypes.NOW,
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      defaultValue: DataTypes.NOW,
+      type: DataTypes.DATE,
+      allowNull: true
+    }
 	},
 	{
       classMethods: {
