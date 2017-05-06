@@ -14,11 +14,22 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
+<<<<<<< HEAD
     "express-session": "^1.15.2",
+=======
+    "express-socket.io": "^1.0.3",
+    "http": "0.0.0",
+>>>>>>> 0ec2c5337609caf709f0c2542c8f10016392f11c
     "method-override": "^2.3.8",
+    "moment": "^2.18.1",
     "mysql": "^2.13.0",
     "passport": "^0.3.2",
     "passport-google-oauth": "^1.0.0",
+<<<<<<< HEAD
     "sequelize": "^3.30.4"
+=======
+    "sequelize": "^3.30.4",
+    "socket.io": "^1.7.3"
+>>>>>>> 0ec2c5337609caf709f0c2542c8f10016392f11c
   }
 }
