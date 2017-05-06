@@ -44,13 +44,14 @@ ioProm.then(function(io) {
 
 
 require("./controllers/users_controller.js")(app);
+require("./controllers/class_controller.js")(app);
 require("./controllers/html-routes")(app);
 require("./controllers/session_controller.js")(app);
 
-db.sequelize.sync({force:true}).then(function() {
-  console.log("DB connection made");
-});
 
-// app.listen(PORT, function() {
-//     console.log("App listening on PORT " + PORT);
-// });
+
+db.sequelize.sync({}).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});

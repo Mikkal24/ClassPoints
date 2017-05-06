@@ -1,1 +1,18 @@
-<h1> INDEX.HANDLEBARS </h1>
+<div class="container mainbody">
+    <div class="row">
+        <div class="col-sm-12">
+
+            {{#each classes}}
+            <a href="#" class="classlink">
+                <div class="thumbnail classcards">
+                    <div class="caption">
+                    <h3 class="className">{{this.name}}</h3>
+                    <p class="cmStats">{{this.cleandate}}</p>
+                    </div>
+                </div>
+            </a>
+            {{/each}}
+
+        </div>
+    </div>
+</div>
