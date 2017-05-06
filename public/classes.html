@@ -40,11 +40,62 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="signin.html">Sign In</a></li>
+        <li><a data-toggle="modal" data-target="#createuserModal">Create User</a></li>
       </ul>
+      <div class="nav navbar-right">
+        <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#loginModal">Sign in</button>
+      </div>
     </div>
   </div>
 </nav>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="loginModalLabel">Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <form action="/user/login" method="GET">
+          <div class="form-group">
+            <label for="text" class="form-control-label">Email:</label><br>
+            <input type="text" id="email" name="email">
+          </div>
+        </form>
+        <button type="button" class="btn btn-primary">Sign In</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create User Modal -->
+<div class="modal fade" id="createuserModal" tabindex="-1" role="dialog" aria-labelledby="createuserModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="createuserLabel">Create User</h4>
+      </div>
+      <div class="modal-body">
+        <form action="/user/login" method="GET">
+          <div class="form-group">
+            <label for="text" class="form-control-label">First Name: (required)</label><br>
+            <input type="text" id="fName" name="firstname" required="true"><br>
+            <label for="text" class="form-control-label">Last Name: (required)</label><br>
+            <input type="text" id="lName" name="lastname"><br>
+            <label for="text" class="form-control-label">Email: (required)</label><br>
+            <input type="text" id="lName" name="email"><br>
+            <label for="text" class="form-control-label">Github Link:</label><br>
+            <input type="text" id="email" name="githublink">
+          </div>
+        </form>
+        <button type="button" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container mainbody">
     <div class="row">
