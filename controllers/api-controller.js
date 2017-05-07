@@ -8,7 +8,7 @@ module.exports = function(app){
         var url_parts = url.parse(req.url, true);
 		db.User.findAll({
             where: {
-                userId: url_parts.query.userId
+                id: url_parts.query.userId
             }
         }).then(function(data){
 			res.json(data);
