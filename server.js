@@ -48,6 +48,7 @@ ioProm.then(function(io) {
 
 require("./controllers/users_controller.js")(app);
 require("./controllers/class_controller.js")(app);
+require("./controllers/classmates_controller.js")(app);
 require("./controllers/html-routes")(app);
 require("./controllers/session_controller.js")(app);
 
