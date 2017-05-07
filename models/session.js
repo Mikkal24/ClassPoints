@@ -3,6 +3,16 @@ module.exports = function(sequelize, DataTypes) {
     Points: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false
+    },
+    createdAt: {
+      defaultValue: DataTypes.NOW,
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    updatedAt: {
+      defaultValue: DataTypes.NOW,
+      type: DataTypes.DATE,
+      allowNull: true
     }
   },
     {

@@ -20,5 +20,4 @@ INSERT INTO Users (fName, lName, isAdmin, email) VALUES ('Andrew', 'Litte', 0, '
 ('Oscar', 'Luna', 0, 'oscarluna@gmail.com'),
 ('Stephen', 'Urena', 0, 'stephenurena@gmail.com'),
 ('Tony', 'Facchini', 0, 'tonyfaccini@gmail.com'),
-('Zach', 'Rilling', 0, 'zachrilling@gmail.com'),
-('John21', 'Doe21', 0, 'johndoe@gmail21.com');
+('Zach', 'Rilling', 0, 'zachrilling@gmail.com');
