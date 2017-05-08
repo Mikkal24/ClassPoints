@@ -58,13 +58,9 @@
         <h4 class="modal-title" id="loginModalLabel">Sign In</h4>
       </div>
       <div class="modal-body">
-        <form action="/user/login" method="GET">
-          <div class="form-group">
             <label for="text" class="form-control-label">Email:</label><br>
             <input type="text" id="email" name="email">
-          </div>
-        </form>
-        <button type="button" class="btn btn-primary">Sign In</button>
+        <button type="button" id="loginBtn" class="btn btn-primary">Sign In</button>
       </div>
     </div>
   </div>
@@ -99,6 +95,19 @@
 </div>
 
 {{{ body }}}
+
+<script>
+$('#loginBtn').on("click",function(){
+  var email = $("#email").val().trim();
+  if(email){
+    $.post("/user/login", {email:email},function(data){
+      console.log(data);
+      sessionStorage.setItem("userID",data);
+      console.log(sessionStorage.getItem("userID"));
+    })
+  }
+})
+</script>
 
 </body>
 </html>

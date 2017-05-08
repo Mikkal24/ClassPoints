@@ -16,7 +16,7 @@ module.exports = function(app){
 
 	});
 
-	app.get("/user/login", function(req,res){
+	app.post("/user/login", function(req,res){
 		//gets called when the user logs in (finds their user record essentially)
 		db.User.findOne({
 			where: {
@@ -25,7 +25,7 @@ module.exports = function(app){
 			}
 		}).then(function(data){
 
-			res.redirect("/user");
+			res.json(data.id);
 		})
 	})
 
