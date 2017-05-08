@@ -35,8 +35,8 @@ module.exports = function(app){
 			where: {
 				email: req.body.email
 			}, defaults: {
-				fName: req.body.fName,
-				lName: req.body.lName,
+				fName: req.body.firstname,
+				lName: req.body.lastname,
 				email: req.body.email,
 				isAdmin: 0
 			}
