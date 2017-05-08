@@ -49,6 +49,49 @@ var determineConnect = function(userid){
   return true
 };
 
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+var sesObj = {};
+
+// Handels initialconnection emits userAdd
+// Handels disconnect emits userRemove
+ioProm.then(function(io) {
+  io.on('connection', function(socket) {
+
+    Console.log("Socket connection - incoming initialConnect message");
+
+    socket.on("initialConnect", function(data){
+      Console.log("initialConnect message recieved");
+      socket.userId = data.userId;
+      socket.classId = data.classId;
+      socket.join(socket.classId);
+      if (typeof sesObj[socket.classId] === "undefined"){
+        sesObj[socket.classId] = [];
+      };
+      sesObj[socket.classId].push(socket.userId);
+      io.to(socket.classId).emit(userAdd, sesObj[socket.classId]);
+    });
+
+    socket.on('disconnect', function() {
+      console.log("User " + socket.userId + " disconnected");
+      sesObj[socket.classId].splice(sesObj[socket.classId].indexOf(socket.userId), 1);
+      if (!sesObj[socket.classId].length){
+        delete sesObj[socket.classId];
+      } else {
+        io.to(socket.classId).emit(userRemove, socket.userId);
+      };
+    });
+
+  });
+});
+
+// http://docs.sequelizejs.com/en/latest/docs/models-usage/
+// http://stackoverflow.com/questions/24100218/socket-io-send-packet-to-sender-only
+// https://github.com/socketio/socket.io/blob/318d62/examples/chat/index.js#L36
+// http://stackoverflow.com/questions/19150220/creating-rooms-in-socket-io
+
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
 // This is our socket promise that will launch whenever we have an incoming event
 ioProm.then(function(io) {
   // io is the io object connected to the server.
@@ -68,7 +111,6 @@ ioProm.then(function(io) {
     // if they are a new connection we query our DB for their info and add it to the session table array and send it to everyone
     // If they are an existing connection we just send out the session table array to everyone
     socket.on("initialConnect", function(data){
-
       console.log(data);
       if(determineConnect(data.userId)){
         db.User.findAll({
