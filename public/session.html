@@ -21,10 +21,15 @@
 <script>
   var socket = io();
 //   socket.ids = 1;
-  socket.emit('incoming', "this is a test");
+  socket.emit('test', {test: "this is a test"});
+  socket.emit('initialConnect', {userId: 1});
 
   socket.on('outgoing', function(msg){
       console.log(msg);
+    });
+
+    socket.on("userConnect", function(data){
+      console.log(data);
     });
 
     function addUser(userId){
@@ -47,7 +52,7 @@
 
     };
 
-    addUser(1);
+    // addUser(1);
 </script>
 
 <body>
