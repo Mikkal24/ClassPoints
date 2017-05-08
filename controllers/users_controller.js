@@ -28,6 +28,14 @@ module.exports = function(app){
 			res.json(data.id);
 		})
 	})
+	
+	app.update("user/:id",function(req,res){
+		//update points by one
+		db.User.update({
+			where:{
+				id: req.params.id.
+			},
+		}).then(function(data){
 
 	app.post("/user/newUser", function(req,res){
 		console.log(req.body.fName)
