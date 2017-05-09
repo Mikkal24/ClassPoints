@@ -56,9 +56,20 @@ ioProm.then(function(io) {
 
       /////////////////////////////////////
       // in here we need to find or create the user/class on the session table (permanently add to the session)
-      // db.session.findOrCreate({
-      //   where: {}
-      // })
+      db.session.findOrCreate({
+        where: {
+          userId: data.userId,
+          classId: data.classId
+        },
+        defaults: {
+          points: 0
+        }
+      }).spread(function(data, created){
+        console.log("---------------------------");
+        console.log(data);
+        console.log(created);
+        console.log("---------------------------");
+      });
       ////////////////////////////////////
 
       // assign attributes to this particular socket for use later
@@ -124,7 +135,7 @@ ioProm.then(function(io) {
           // delete them from our class object (this keeps our class object clean with only connected users)
           sesObj[socket.classId].splice(i, 1);
           break;
-        }
+        };
       };
 
       // if there are no longer any users in our class object
@@ -140,6 +151,27 @@ ioProm.then(function(io) {
         io.to(socket.classId).emit("userRemove", socket.userId);
       };
     });
+
+    // handles adding a point to a user
+    socket.on('addPoint', function(userId) {
+      // Loop through the class object to find the user to add a point
+      for (i=0; i<sesObj[socket.classId].length; i++){
+
+        // if we find them
+        if (sesObj[socket.classId][i].userId === userId){
+
+          // add a point!
+          sesObj[socket.classId][i].points++;
+
+          // emit to everyone that a point needs to be added!
+          io.to(socket.classId).emit("addPoint", userId);
+          break;
+        };
+      };
+    });
+
+    // more event handlers can go here if necessary
+
   });
 });
 
