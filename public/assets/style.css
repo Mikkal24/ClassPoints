@@ -12,11 +12,22 @@ div.mainbody {
     margin-bottom: 50px
 }
 
+.modalbtn {
+    background-color: #2B4251;
+    border-color: #2B4251;
+}
+
+.modalbtn:hover {
+    color: #91B3BC;
+    background-color: #2B4251;
+    border-color: #2B4251;
+}
+
 /* Nav */
 nav.navbar {
     border-radius: 0;
     margin-bottom: 0;
-    background-color: #2E323C;
+    background-color: #2B4251;
 }
 
 ul.nav:hover {
@@ -35,8 +46,15 @@ ul.nav:hover {
     background-color: #91B3BC;
 }
 
-.navbar-default .navbar-nav>.active>a:hover {
-    background-color: #2E323C;
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-brand:hover {
+    background-color: #2B4251;
+    color: #91B3BC;
+}
+
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-brand:focus {
+    background-color: #2B4251;
     color: #91B3BC;
 }
 
@@ -44,14 +62,9 @@ a.navbar-brand {
     padding: 19.5px 25px
 }
 
-.navbar-default .navbar-brand:hover {
-    background-color: #2E323C;
-    color: #91B3BC;
-}
-
 #loginbtn {
     background-color: #ffffff;
-    color: #2E323C;
+    color: #2B4251;
     font-size: 16px;
     padding: 8px 15px;
 }
@@ -98,7 +111,8 @@ div.classcards {
 }
 
 div.classcards:hover {
-    border: 1px solid red;
+    border: 1px solid #d5dee0;
+    box-shadow: 5px 5px 20px #888888;
 }
 
 .className {
