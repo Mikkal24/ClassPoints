@@ -62,6 +62,9 @@ ioProm.then(function(io) {
 
     socket.on("initialConnect", function(data){
       console.log("initialConnect message recieved");
+      db.session.findOrCreate({
+        where: {}
+      })
       socket.userId = data.userId;
       socket.classId = data.classId;
       socket.points = 0;
@@ -106,7 +109,6 @@ ioProm.then(function(io) {
       };
       console.log(sesObj);
     });
-
   });
 });
 
