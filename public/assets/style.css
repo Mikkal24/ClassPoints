@@ -12,17 +12,6 @@ div.mainbody {
     margin-bottom: 50px
 }
 
-.modalbtn {
-    background-color: #2B4251;
-    border-color: #2B4251;
-}
-
-.modalbtn:hover {
-    color: #91B3BC;
-    background-color: #2B4251;
-    border-color: #2B4251;
-}
-
 /* Nav */
 nav.navbar {
     border-radius: 0;
@@ -59,7 +48,8 @@ ul.nav:hover {
 }
 
 a.navbar-brand {
-    padding: 19.5px 25px
+    padding: 17px 25px;
+    font-size: 24px
 }
 
 #loginbtn {
@@ -75,7 +65,27 @@ a.navbar-brand {
     color: #ffffff;
 }
 
-/* Scoreboard */
+/* Modals */
+label {
+    margin-bottom: 3px;
+}
+
+input {
+    margin-bottom: 5px;
+}
+
+.modalbtn {
+    background-color: #2B4251;
+    border-color: #2B4251;
+}
+
+.modalbtn:hover {
+    color: #91B3BC;
+    background-color: #2B4251;
+    border-color: #2B4251;
+}
+
+/* Leaderboard */
 table.table-bordered {
     text-align: center;
 }
@@ -122,24 +132,40 @@ div.classcards:hover {
 }
 
 /* Sessions */
-div.sidebar {
+div.sidecontainer {
     position: fixed;
     top: 60px;
     left: 0;
     bottom: 0;
+    background-color: #dcdcdc;
+    padding: 0 10px;
 }
 
-.nav-sidebar {
-    margin: 5px;
+.sidebar {
+    padding: 10px 0;
+    list-style-type: none;
 }
 
 .rankingname {
     display: inline-block;
-    font-size: 20px;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 
 .rankingpoint {
     display: inline-block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.givepointside {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.glyphicon-plus {
+    font-size: 16px;
+    padding-right: 5px;
 }
 
 div.main {
