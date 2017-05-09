@@ -22,13 +22,13 @@
   var socket = io();
 //   socket.ids = 1;
   socket.emit('test', {test: "this is a test"});
-  socket.emit('initialConnect', {userId: 1});
+  socket.emit('initialConnect', {userId: 1, classId: 1});
 
   socket.on('outgoing', function(msg){
       console.log(msg);
     });
 
-    socket.on("userConnect", function(data){
+    socket.on("userAdd", function(data){
       console.log(data);
     });
 
