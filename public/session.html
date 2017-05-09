@@ -54,11 +54,15 @@
         var addImg = $("<img>").attr("src", "http://placehold.it/200x150").addClass("smImage");
         var innerDiv = $("<div>").addClass("caption");
         var nameHeader = $("<h3>").addClass("studentname").text(data.fName+" "+data.lName);
-        var points = $("<p>").addClass("cmStats").text("Points: "+data.points); //this should be a button
+        var points = $("<p>").addClass("cmStats").text("Points: "+data.points); //this should be a button that gets the userID somehow hrmmmm
+          //then it should add points to the userID that matches the card socket style I suppose
         innerDiv.append(nameHeader)
             .append(points);
         addDiv.append(addImg)
             .append(innerDiv);
+
+        //store user data? not 100% sure what to do with this might be important to add points to the right user
+        addDiv.attr("userID",data.id);
 
         $("#main").append(addDiv);
     }
