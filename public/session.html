@@ -20,39 +20,41 @@
 
 <script>
   var socket = io();
-//   socket.ids = 1;
-  socket.emit('test', {test: "this is a test"});
+
+  // here we need logic to pull the user id from session storage and class id from url
   socket.emit('initialConnect', {userId: 1, classId: 1});
 
-  socket.on('outgoing', function(msg){
-      console.log(msg);
-    });
-
-    socket.on("userAdd", function(data){
+    // here we need logic to add all users
+    socket.on('allUsers', function(data){
+      console.log("allUser function called");
       console.log(data);
     });
 
-    function addUser(userId){
-        $.get("/api/user", {userId: userId}, function(data){
-            console.log(data[0]);
-            var addDiv = $("<div>").addClass("thumbnail studentcards");
-            var addImg = $("<img>").attr("src", "http://placehold.it/200x150").addClass("smImage");
-            var innerDiv = $("<div>").addClass("caption");
-            var nameH = $("<h3>").addClass("studentname").text(data[0].fName + " " + data[0].lName);
-            var points = $("<p>").addClass("cmStats").text("Points: 0");
-            innerDiv.append(nameH);
-            innerDiv.append(points);
-            addDiv.append(addImg);
-            addDiv.append(innerDiv);
+    // Here we need logic to add one user
+    socket.on("userAdd", function(data){
+      console.log("userAdd function called");
+      console.log(data);
+    });
 
-            $("#main").append(addDiv);
-        });
-    };
-    function removeUser(userId){
+    // This is a function that needs to be fixed. we dont need to query from the user info anymore
+    // because the server does it for us
+    // function addUser(userId){
+    //     $.get("/api/user", {userId: userId}, function(data){
+    //         console.log(data[0]);
+    //         var addDiv = $("<div>").addClass("thumbnail studentcards");
+    //         var addImg = $("<img>").attr("src", "http://placehold.it/200x150").addClass("smImage");
+    //         var innerDiv = $("<div>").addClass("caption");
+    //         var nameH = $("<h3>").addClass("studentname").text(data[0].fName + " " + data[0].lName);
+    //         var points = $("<p>").addClass("cmStats").text("Points: 0");
+    //         innerDiv.append(nameH);
+    //         innerDiv.append(points);
+    //         addDiv.append(addImg);
+    //         addDiv.append(innerDiv);
 
-    };
+    //         $("#main").append(addDiv);
+    //     });
+    // };
 
-    // addUser(1);
 </script>
 
 <body>
