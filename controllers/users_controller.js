@@ -37,8 +37,26 @@ module.exports = function(app) {
 			 
 		});
 	});
-	
 
+	app.post("/user/newUser", function(req, res) {
+		//to add new users to the database when create user button is clicked
+		console.log(req.body.fName)
+		db.User.findOrCreate({
+			where: {
+				email: req.body.email
+			}, defaults: {
+				fName: req.body.firstname,
+				lName: req.body.lastname,
+				email: req.body.email,
+				isAdmin: 0
+			}
+		}).then(function (userData) {
+			res.redirect('/user');
+		})
+	});
+
+
+//wasn't sure what's going on down here
 	app.put("user/:id", function(req, res) {
 		//update points by one
 		db.User.update({
