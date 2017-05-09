@@ -7,13 +7,15 @@
     <meta charset="UTF-8">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link href='//fonts.googleapis.com/css?family=Arimo' rel='stylesheet'>
+    <link href='//fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <!--jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 
 <body>
@@ -34,16 +36,16 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="leaderboard">Leaderboard <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="leaderboard">Leaderboard <span class="sr-only">(current)</span></a></li>
         <li><a href="classes">Classes</a></li>
-        <li class="active"><a href="/classmates">Classmates</a></li>
+        <li><a href="classmates">Classmates</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li><a data-toggle="modal" data-target="#createuserModal">Create User</a></li>
       </ul>
       <div class="nav navbar-right">
-        <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#loginModal">Sign in</button>
+        <button type="button" class="btn navbar-btn" id="loginbtn" data-toggle="modal" data-target="#loginModal">Sign in</button>
       </div>
     </div>
   </div>
