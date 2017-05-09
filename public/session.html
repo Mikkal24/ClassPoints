@@ -28,13 +28,36 @@
     socket.on('allUsers', function(data){
       console.log("allUser function called");
       console.log(data);
+
+      for(var i = 0;i<data.length;i++){
+        buildCard(data[i]);
+      }
+
+      // function buildLots-O-Cards
     });
 
     // Here we need logic to add one user
     socket.on("userAdd", function(data){
       console.log("userAdd function called");
       console.log(data);
-    });
+
+        buildCard(data);
+      })
+
+
+    function buildCard(data){
+        var addDiv = $("<div>").addClass("thumbnail studentcards");
+        var addImg = $("<img>").attr("src", "http://placehold.it/200x150").addClass("smImage");
+        var innerDiv = $("<div>").addClass("caption");
+        var nameHeader = $("<h3>").addClass("studentname").text(data.fName+" "+data.lName);
+        var points = $("<p>").addClass("cmStats").text("Points: "+data.points); //this should be a button
+        innerDiv.append(nameHeader)
+            .append(points);
+        addDiv.append(addImg)
+            .append(innerDiv);
+
+        $("#main").prepend(addDiv);
+    }
 
     // This is a function that needs to be fixed. we dont need to query from the user info anymore
     // because the server does it for us
@@ -154,87 +177,7 @@
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 main" id="main">
-            <div class="thumbnail studentcards">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="studentname">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Points: 100</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-            <div class="thumbnail studentcards">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="studentname">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Points: 100</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-            <div class="thumbnail studentcards">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="studentname">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Points: 100</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-            <div class="thumbnail studentcards">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="studentname">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Points: 100</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-            <div class="thumbnail studentcards">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="studentname">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Points: 100</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-            <div class="thumbnail studentcards">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="studentname">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Points: 100</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-            <div class="thumbnail studentcards">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="studentname">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Points: 100</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-            <div class="thumbnail studentcards">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="studentname">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Points: 100</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-            <div class="thumbnail studentcards">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="studentname">Will Hansen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Points: 100</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-            <div class="thumbnail studentcards">
-                <img src="http://placehold.it/200x150" alt="" class="smImage"/>
-                <div class="caption">
-                <h3 class="studentname">Michael Sorensen</h3><a href="#" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Points: 100</p>
-                <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-                </div>
-            </div>
-        </div>
+            
     </div>
 </div>
 
@@ -244,3 +187,4 @@
 
 </body>
 </html>
+
