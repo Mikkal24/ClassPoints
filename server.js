@@ -58,28 +58,53 @@ var sesObj = {};
 ioProm.then(function(io) {
   io.on('connection', function(socket) {
 
-    Console.log("Socket connection - incoming initialConnect message");
+    console.log("Socket connection - incoming initialConnect message");
 
     socket.on("initialConnect", function(data){
-      Console.log("initialConnect message recieved");
+      console.log("initialConnect message recieved");
       socket.userId = data.userId;
       socket.classId = data.classId;
-      socket.join(socket.classId);
-      if (typeof sesObj[socket.classId] === "undefined"){
-        sesObj[socket.classId] = [];
-      };
-      sesObj[socket.classId].push(socket.userId);
-      io.to(socket.classId).emit(userAdd, sesObj[socket.classId]);
+      socket.points = 0;
+      db.User.findAll({
+        where: {
+          id: data.userId
+        }
+      }).then(function(data){
+        socket.join(socket.classId);
+        if (typeof sesObj[socket.classId] === "undefined"){
+          sesObj[socket.classId] = [];
+        } else {
+          socket.emit("allUsers", sesObj[socket.classId]);
+        };
+        var newUser = {
+          userId: socket.userId,
+          classId: socket.classId,
+          fName: data[0].fName,
+          lName: data[0].lName,
+          email: data[0].email,
+          picture: data[0].picture,
+          gitLink: data[0].gitLink,
+          points: 0
+        };
+        sesObj[socket.classId].push(newUser);
+        io.to(socket.classId).emit("userAdd", newUser);
+      });
     });
 
     socket.on('disconnect', function() {
       console.log("User " + socket.userId + " disconnected");
-      sesObj[socket.classId].splice(sesObj[socket.classId].indexOf(socket.userId), 1);
+      for (i=0; i<sesObj[socket.classId].length; i++){
+        if (sesObj[socket.classId][i].userId === socket.userId){
+          sesObj[socket.classId].splice(i, 1);
+          break;
+        }
+      };
       if (!sesObj[socket.classId].length){
         delete sesObj[socket.classId];
       } else {
-        io.to(socket.classId).emit(userRemove, socket.userId);
+        io.to(socket.classId).emit("userRemove", socket.userId);
       };
+      console.log(sesObj);
     });
 
   });
@@ -92,48 +117,48 @@ ioProm.then(function(io) {
 
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-// This is our socket promise that will launch whenever we have an incoming event
-ioProm.then(function(io) {
-  // io is the io object connected to the server.
+// // This is our socket promise that will launch whenever we have an incoming event
+// ioProm.then(function(io) {
+//   // io is the io object connected to the server.
     
-  // When we get an incoming event we preload all our custom events
-  io.on('connection', function(socket) {
-    console.log('Connected!');
+//   // When we get an incoming event we preload all our custom events
+//   io.on('connection', function(socket) {
+//     console.log('Connected!');
 
-    // Here is where we write all our custom events
+//     // Here is where we write all our custom events
 
-    // A test event I used for testing (to be deleted)
-    socket.on("test", function(data){
-      console.log(data);
-    });
+//     // A test event I used for testing (to be deleted)
+//     socket.on("test", function(data){
+//       console.log(data);
+//     });
 
-    // An initial connection event that launches when someoneone connects
-    // if they are a new connection we query our DB for their info and add it to the session table array and send it to everyone
-    // If they are an existing connection we just send out the session table array to everyone
-    socket.on("initialConnect", function(data){
-      console.log(data);
-      if(determineConnect(data.userId)){
-        db.User.findAll({
-          where: {
-            id: data.userId
-          }
-        }).then(function(data){
-          sessionTable.push(data[0]);
-          socket.emit('userConnect', sessionTable);
-          console.log("New user connect");
-        });
-      } else {
-        socket.emit('userConnect', sessionTable);
-        console.log("User Reconnect");
-      };
-    });
+//     // An initial connection event that launches when someoneone connects
+//     // if they are a new connection we query our DB for their info and add it to the session table array and send it to everyone
+//     // If they are an existing connection we just send out the session table array to everyone
+//     socket.on("initialConnect", function(data){
+//       console.log(data);
+//       if(determineConnect(data.userId)){
+//         db.User.findAll({
+//           where: {
+//             id: data.userId
+//           }
+//         }).then(function(data){
+//           sessionTable.push(data[0]);
+//           socket.emit('userConnect', sessionTable);
+//           console.log("New user connect");
+//         });
+//       } else {
+//         socket.emit('userConnect', sessionTable);
+//         console.log("User Reconnect");
+//       };
+//     });
 
 
-    socket.on('disconnect', function() {
-      console.log('Got disconnect!');
-    });
-    });
-});
+//     socket.on('disconnect', function() {
+//       console.log('Got disconnect!');
+//     });
+//     });
+// });
 
 
 
