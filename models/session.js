@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var Session = sequelize.define("Session", {
-    Points: {
+    points: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false
     },
