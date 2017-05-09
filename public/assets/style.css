@@ -1,3 +1,8 @@
+body {
+    font-family: Arimo, Arial, sans-serif;
+    font-size: 16px;
+}
+
 h3 {
     margin: 10px 0;
 }
@@ -11,10 +16,50 @@ div.mainbody {
 nav.navbar {
     border-radius: 0;
     margin-bottom: 0;
+    background-color: #2E323C;
+}
+
+ul.nav:hover {
+    cursor: pointer;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #91B3BC;
+}
+
+.navbar-default .navbar-nav>.active>a {
+    background-color: #91B3BC;
+}
+
+.navbar-default .navbar-nav>.active>a:hover {
+    background-color: #2E323C;
+    color: #91B3BC;
 }
 
 a.navbar-brand {
     padding: 19.5px 25px
+}
+
+.navbar-default .navbar-brand:hover {
+    background-color: #2E323C;
+    color: #91B3BC;
+}
+
+#loginbtn {
+    background-color: #ffffff;
+    color: #2E323C;
+    font-size: 16px;
+    padding: 8px 15px;
+}
+
+#loginbtn:hover {
+    border: 2px solid #ffffff;
+    background-color: #91B3BC;
+    color: #ffffff;
 }
 
 /* Scoreboard */
@@ -24,6 +69,10 @@ table.table-bordered {
 
 .leadertitles {
     margin: 10px 0;
+}
+
+.tablehead {
+    background-color: #e2e4e9;
 }
 
 #rankth, #scoreth, #ltpth, #joinedth {
