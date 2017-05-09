@@ -28,57 +28,68 @@ server.listen(PORT, function() {
     console.log('Server listening on port: ', PORT);
 });
 
-// create a blank session array to add to as people connect
-var sessionTable = [];
 
-// function to determine if a connection made to socket is new or a reconnect
-var determineConnect = function(userid){
-
-  // loop through sessionTable
-  for(i=0;i<sessionTable.length;i++){
-
-    // if the incoming userId matches and entry already on the table
-    if(userid == sessionTable[i].id){
-
-      // return false because the user is already on the table
-      return false
-    };
-  };
-  
-  // return true because the user doesn't exist in out table
-  return true
-};
+// STILL NEED
+// 1. account for reconnects
+// 2. findorcreate to add user to session or get their current points and add to session
+// 3. write addPoint promise to handle adding a point to a user
+// 4. on disconnect, update the sessiontable with the users current points (from sesObj)
+// 5. move session.html JS and server.js socket logic to their own respective files
 
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+// Create an initial session object that will populate as users join sessions
 var sesObj = {};
 
-// Handels initialconnection emits userAdd
-// Handels disconnect emits userRemove
+// Out IO Promise, all socket functions will happen inside here
 ioProm.then(function(io) {
   io.on('connection', function(socket) {
 
+    // A connection was made and an initialconnect message should be incoming (unless this is a reconnect which we need to account for)
     console.log("Socket connection - incoming initialConnect message");
 
+    // This handles initial connect messages
     socket.on("initialConnect", function(data){
+
+      // Log that we recieved an initial connect message
       console.log("initialConnect message recieved");
+
+      /////////////////////////////////////
+      // in here we need to find or create the user/class on the session table (permanently add to the session)
       // db.session.findOrCreate({
       //   where: {}
       // })
+      ////////////////////////////////////
+
+      // assign attributes to this particular socket for use later
       socket.userId = data.userId;
       socket.classId = data.classId;
       socket.points = 0;
+
+      // query the database to find more information abuot the connected user
       db.User.findAll({
         where: {
           id: data.userId
         }
       }).then(function(data){
+
+        // Add the user to the socket room (class) for emitting messages to specific classes
         socket.join(socket.classId);
+
+        // if the class is not already an object in our session object
         if (typeof sesObj[socket.classId] === "undefined"){
+
+          // then create it
           sesObj[socket.classId] = [];
+
+          // or else
         } else {
+
+          // emit all user to only the sender (for them to buil all cards for everyone currently in their joined class)
           socket.emit("allUsers", sesObj[socket.classId]);
         };
+
+        // Create a new user object with data from the query (to be used for building cards on the client)
         var newUser = {
           userId: socket.userId,
           classId: socket.classId,
@@ -89,25 +100,45 @@ ioProm.then(function(io) {
           gitLink: data[0].gitLink,
           points: 0
         };
+
+        // add our user to their class in our session object
         sesObj[socket.classId].push(newUser);
+
+        // emit to everyone in the class that a new user has joined (along with their data to build the card)
         io.to(socket.classId).emit("userAdd", newUser);
       });
     });
 
+    // this handles disconnect messages
     socket.on('disconnect', function() {
+
+      // Log to the console which user has disconnected
       console.log("User " + socket.userId + " disconnected");
+
+      // Loop through the class object of the user that disconnected
       for (i=0; i<sesObj[socket.classId].length; i++){
+
+        // if we find them
         if (sesObj[socket.classId][i].userId === socket.userId){
+
+          // delete them from our class object (this keeps our class object clean with only connected users)
           sesObj[socket.classId].splice(i, 1);
           break;
         }
       };
+
+      // if there are no longer any users in our class object
       if (!sesObj[socket.classId].length){
+
+        // delete the class from our session object
         delete sesObj[socket.classId];
+
+        // or else
       } else {
+
+        // emit to everyone in the class the user id that has left (to be handled on the client side)
         io.to(socket.classId).emit("userRemove", socket.userId);
       };
-      console.log(sesObj);
     });
   });
 });
@@ -119,52 +150,6 @@ ioProm.then(function(io) {
 
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-// // This is our socket promise that will launch whenever we have an incoming event
-// ioProm.then(function(io) {
-//   // io is the io object connected to the server.
-    
-//   // When we get an incoming event we preload all our custom events
-//   io.on('connection', function(socket) {
-//     console.log('Connected!');
-
-//     // Here is where we write all our custom events
-
-//     // A test event I used for testing (to be deleted)
-//     socket.on("test", function(data){
-//       console.log(data);
-//     });
-
-//     // An initial connection event that launches when someoneone connects
-//     // if they are a new connection we query our DB for their info and add it to the session table array and send it to everyone
-//     // If they are an existing connection we just send out the session table array to everyone
-//     socket.on("initialConnect", function(data){
-//       console.log(data);
-//       if(determineConnect(data.userId)){
-//         db.User.findAll({
-//           where: {
-//             id: data.userId
-//           }
-//         }).then(function(data){
-//           sessionTable.push(data[0]);
-//           socket.emit('userConnect', sessionTable);
-//           console.log("New user connect");
-//         });
-//       } else {
-//         socket.emit('userConnect', sessionTable);
-//         console.log("User Reconnect");
-//       };
-//     });
-
-
-//     socket.on('disconnect', function() {
-//       console.log('Got disconnect!');
-//     });
-//     });
-// });
-
-
-
-
 require("./controllers/users_controller.js")(app);
 require("./controllers/class_controller.js")(app);
 require("./controllers/classmates_controller.js")(app);
@@ -173,8 +158,5 @@ require("./controllers/session_controller.js")(app);
 require("./controllers/api-controller.js")(app);
 
 db.sequelize.sync({}).then(function() {
-  // app.listen(PORT, function() {
-  //   console.log("App listening on PORT " + PORT);
-  // });
   console.log("DB connected");
 });
