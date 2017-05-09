@@ -26,6 +26,18 @@ module.exports = function(app) {
 			res.json(data.id);
 		})
 	})
+	
+	app.put("/user/:id", function(req,res){
+		//controller method to add points to the user record
+		db.User.update({
+			 points: sequelize.literal('points+1'), 
+			 	where: {
+			 		id: req.param.id
+			 	}
+			 
+		});
+	});
+	
 
 	app.put("user/:id", function(req, res) {
 		//update points by one
