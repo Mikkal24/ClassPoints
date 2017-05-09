@@ -7,13 +7,13 @@
     <meta charset="UTF-8">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="../assets/style.css">
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="../assets/style.css">
 </head>
 
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
@@ -163,27 +163,30 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-3 sidebar" style="background-color: #d3d3d3">
-            <h3>Current Ranking</h3>
-            <ul class="nav nav-sidebar">
+        <div class="col-sm-2 sidecontainer">
+            <ul class="sidebar">
                 <li class="rankinglist">
+                    <p class="givepointside"><span class="glyphicon glyphicon-plus"></span></p>
                     <p class="rankingname">Will Hansen</p>
                     <p class="rankingpoint">50</p>
                 </li>
                 <li class="rankinglist">
-                    <p class="rankingname">Will Hansen</p>
-                    <p class="rankingpoint">50</p>
+                    <p class="givepointside"><span class="glyphicon glyphicon-plus"></span></p>
+                    <p class="rankingname">Michael Sorensen</p>
+                    <p class="rankingpoint">48</p>
+                </li>
+                <li class="rankinglist">
+                    <p class="givepointside"><span class="glyphicon glyphicon-plus"></span></p>
+                    <p class="rankingname">Jenny Chu</p>
+                    <p class="rankingpoint">8</p>
                 </li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 main" id="main">
             
-    </div>
+        
+         </div>
 </div>
-
-<footer>
-  <p id="copyright">Copyright &copy; 2017 ClassPoints</p>
-</footer>
 
 </body>
 </html>
