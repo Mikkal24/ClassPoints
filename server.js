@@ -54,70 +54,79 @@ ioProm.then(function(io) {
       // Log that we recieved an initial connect message
       console.log("initialConnect message recieved");
 
+      // assign attributes to this particular socket for use later
+      socket.userId = data.userId;
+      socket.classId = data.classId;
+
       /////////////////////////////////////
       // in here we need to find or create the user/class on the session table (permanently add to the session)
-      db.session.findOrCreate({
+      db.Session.findOrCreate({
         where: {
-          userId: data.userId,
-          classId: data.classId
+          UserId: data.userId,
+          ClassId: data.classId
         },
         defaults: {
           points: 0
         }
-      }).spread(function(data, created){
+      }).spread(function(sesData, created){
         console.log("---------------------------");
-        console.log(data);
+        console.log(sesData.points)
         console.log(created);
         console.log("---------------------------");
+
+        // query the database to find more information abuot the connected user
+        db.User.findAll({
+          where: {
+            id: socket.userId
+          }
+        }).then(function(userData){
+
+          // Add the user to the socket room (class) for emitting messages to specific classes
+          socket.join(socket.classId);
+
+          // if the class is not already an object in our session object
+          if (typeof sesObj[socket.classId] === "undefined"){
+
+            // then create it
+            sesObj[socket.classId] = [];
+
+            // or else
+          } else {
+
+            // emit all user to only the sender (for them to buil all cards for everyone currently in their joined class)
+            socket.emit("allUsers", sesObj[socket.classId]);
+          };
+
+          // Create a new user object with userData from the query (to be used for building cards on the client)
+          var newUser = {
+            userId: socket.userId,
+            classId: socket.classId,
+            fName: userData[0].fName,
+            lName: userData[0].lName,
+            email: userData[0].email,
+            picture: userData[0].picture,
+            gitLink: userData[0].gitLink
+          };
+
+          if (created){
+            newUser.points = 0;
+          } else {
+            newUser.points = sesData.points;
+          };
+
+          console.log("created: " + created);
+
+          // add our user to their class in our session object
+          sesObj[socket.classId].push(newUser);
+
+          // emit to everyone in the class that a new user has joined (along with their data to build the card)
+          io.to(socket.classId).emit("userAdd", newUser);
+        });
+
       });
       ////////////////////////////////////
 
-      // assign attributes to this particular socket for use later
-      socket.userId = data.userId;
-      socket.classId = data.classId;
-      socket.points = 0;
-
-      // query the database to find more information abuot the connected user
-      db.User.findAll({
-        where: {
-          id: data.userId
-        }
-      }).then(function(data){
-
-        // Add the user to the socket room (class) for emitting messages to specific classes
-        socket.join(socket.classId);
-
-        // if the class is not already an object in our session object
-        if (typeof sesObj[socket.classId] === "undefined"){
-
-          // then create it
-          sesObj[socket.classId] = [];
-
-          // or else
-        } else {
-
-          // emit all user to only the sender (for them to buil all cards for everyone currently in their joined class)
-          socket.emit("allUsers", sesObj[socket.classId]);
-        };
-
-        // Create a new user object with data from the query (to be used for building cards on the client)
-        var newUser = {
-          userId: socket.userId,
-          classId: socket.classId,
-          fName: data[0].fName,
-          lName: data[0].lName,
-          email: data[0].email,
-          picture: data[0].picture,
-          gitLink: data[0].gitLink,
-          points: 0
-        };
-
-        // add our user to their class in our session object
-        sesObj[socket.classId].push(newUser);
-
-        // emit to everyone in the class that a new user has joined (along with their data to build the card)
-        io.to(socket.classId).emit("userAdd", newUser);
-      });
+      
     });
 
     // this handles disconnect messages
@@ -131,6 +140,15 @@ ioProm.then(function(io) {
 
         // if we find them
         if (sesObj[socket.classId][i].userId === socket.userId){
+
+          db.Session.update({
+            points: sesObj[socket.classId][i].points
+          }, {
+            where: {
+              UserId: socket.userId,
+              ClassId: socket.classId
+            }
+          });
 
           // delete them from our class object (this keeps our class object clean with only connected users)
           sesObj[socket.classId].splice(i, 1);

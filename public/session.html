@@ -47,6 +47,10 @@
         //send session user data to build card function
       })
 
+    socket.on("addPoint", function(userId){
+      
+    });
+
 
     function buildCard(data){
         //builds the card
@@ -63,6 +67,10 @@
 
         //store user data? not 100% sure what to do with this might be important to add points to the right user
         addDiv.attr("userID",data.id);
+
+        addDiv.on("click", function(){
+          socket.emit('addPoint', data.id);
+        });
 
         $("#main").append(addDiv);
     }
