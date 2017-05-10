@@ -48,7 +48,8 @@
       })
 
     socket.on("addPoint", function(userId){
-      
+      var curPoints = $('#'+userId).val().trim();
+       $('#'+userId).text(curPoints+1);
     });
 
 
@@ -67,6 +68,7 @@
 
         //store user data? not 100% sure what to do with this might be important to add points to the right user
         addDiv.attr("userID",data.id);
+        points.attr("id",data.id);
 
         addDiv.on("click", function(){
           socket.emit('addPoint', data.id);
