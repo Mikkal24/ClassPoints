@@ -24,15 +24,18 @@
   // here we need logic to pull the user id from session storage and class id from url
   socket.emit('initialConnect', {userId: sessionStorage.getItem("userID"), classId: 1});
     //keep in mind that it will call sessionStorage.getItem(userID);
-
+    var currentSession = [];
     // here we need logic to add all users
     socket.on('allUsers', function(data){
       console.log("allUser function called");
       console.log(data);
 
+      currentSession = data;
+
       for(var i = 0;i<data.length;i++){
         //sends data to build the cards
         buildCard(data[i]);
+        buildScoreBoard(data[i]);
       }
 
       // function buildLots-O-Cards
@@ -43,13 +46,24 @@
       console.log("userAdd function called");
       console.log(data);
 
+      currentSession.push(data);
+
         buildCard(data);
+        buildScoreBoard(data);
+        $("#classSideBar").empty();
+    
         //send session user data to build card function
       })
 
     socket.on("addPoint", function(userId){
-      var curPoints = $('#'+userId).val().trim();
-       $('#'+userId).text(curPoints+1);
+      var id = ("#"+userId);
+
+      for(var i = 0;i<currentSession.length;i++){
+        if(currentSession[i].userId === userId){
+          currentSession[i].points++;
+          $(id).text("Points: "+currentSession[i].points);
+        }
+      }
     });
 
 
@@ -67,15 +81,37 @@
             .append(innerDiv);
 
         //store user data? not 100% sure what to do with this might be important to add points to the right user
-        addDiv.attr("userID",data.id);
-        points.attr("id",data.id);
 
-        addDiv.on("click", function(){
-          console.log(addDiv.attr("userID")+" was clicked");
-          socket.emit('addPoint', data.id);
-        });
+        addDiv.attr("userID", data.userId);
+        points.attr("id", data.userId);
+
 
         $("#main").append(addDiv);
+
+        $(addDiv).on("click", function(){
+           console.log(addDiv.attr("userID")+" was clicked");
+           socket.emit('addPoint', data.userId);
+        });
+    }
+
+    
+
+    function buildScoreBoard(data){
+
+      var addLi = $("<li>").addClass("rankinglist");
+      var pointBtn = $("<p>").addClass("givepointside").text(data.points);
+      var spanBtn = $("<span>").addClass("glyphicon glyphicon-plus");
+      pointBtn.append(spanBtn);
+      var name = $("<p>").addClass("rankingname").text(data.fName);
+      var totalPoints = $("<p>").addClass("rankingpoint").text(data.points);
+
+      addLi.append(pointBtn)
+           .append(name)
+           .append(totalPoints);
+
+
+      $("#classSideBar").append(addLi);
+
     }
 
     // This is a function that needs to be fixed. we dont need to query from the user info anymore
@@ -181,7 +217,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-2 sidecontainer">
-            <ul class="sidebar">
+            <ul class="sidebar" id ="classSideBar">
                 <li class="rankinglist">
                     <p class="givepointside"><span class="glyphicon glyphicon-plus"></span></p>
                     <p class="rankingname">Will Hansen</p>
