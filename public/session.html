@@ -22,7 +22,7 @@
   var socket = io();
 
   // here we need logic to pull the user id from session storage and class id from url
-  socket.emit('initialConnect', {userId: 1, classId: 1});
+  socket.emit('initialConnect', {userId: sessionStorage.getItem("userID"), classId: 1});
     //keep in mind that it will call sessionStorage.getItem(userID);
 
     // here we need logic to add all users
@@ -48,7 +48,8 @@
       })
 
     socket.on("addPoint", function(userId){
-      
+       var curPoints = $('#'+userId).val().trim();
+       $('#'+userId).text(curPoints+1);
     });
 
 
@@ -58,7 +59,7 @@
         var addImg = $("<img>").attr("src", "http://placehold.it/200x150").addClass("smImage");
         var innerDiv = $("<div>").addClass("caption");
         var nameHeader = $("<h3>").addClass("studentname").text(data.fName+" "+data.lName);
-        var points = $("<p>").addClass("cmStats").text("Points: "+data.points); //this should be a button that gets the userID somehow hrmmmm
+        var points = $("<div>").addClass("cmStats").text("Points: "+data.points); //this should be a button that gets the userID somehow hrmmmm
           //then it should add points to the userID that matches the card socket style I suppose
         innerDiv.append(nameHeader)
             .append(points);
@@ -67,6 +68,7 @@
 
         //store user data? not 100% sure what to do with this might be important to add points to the right user
         addDiv.attr("userID",data.id);
+        points.attr("id",data.id);
 
         addDiv.on("click", function(){
           socket.emit('addPoint', data.id);
@@ -138,10 +140,12 @@
         <h4 class="modal-title" id="loginModalLabel">Sign In</h4>
       </div>
       <div class="modal-body">
+        <form>
           <div class="form-group">
             <label for="text" class="form-control-label">Email:</label><br>
             <input type="text" id="email" name="email">
           </div>
+        </form>
         <button type="button" id= "loginBtn" class="btn btn-primary">Sign In</button>
       </div>
     </div>
@@ -198,8 +202,9 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 main" id="main">
             
-        
-         </div>
+        </div>
+  </div>
+
 </div>
 
 
