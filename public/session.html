@@ -22,7 +22,7 @@
   var socket = io();
 
   // here we need logic to pull the user id from session storage and class id from url
-  socket.emit('initialConnect', {userId: 1, classId: 1});
+  socket.emit('initialConnect', {userId: sessionStorage.getItem("userID"), classId: 1});
     //keep in mind that it will call sessionStorage.getItem(userID);
 
     // here we need logic to add all users
@@ -71,6 +71,7 @@
         points.attr("id",data.id);
 
         addDiv.on("click", function(){
+          console.log(addDiv.attr("userID")+" was clicked");
           socket.emit('addPoint', data.id);
         });
 
