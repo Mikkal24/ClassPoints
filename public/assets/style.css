@@ -189,6 +189,7 @@ div.thumbnail {
     display: inline-block;
     padding: 5px;
     margin: 5px;
+    float: left;
 }
 
 .smImage {
@@ -200,10 +201,6 @@ div.thumbnail {
     padding-right: 5px;
     margin: 0;
     font-size: 18px;
-}
-
-.cmStats {
-
 }
 
 .fa-github {
