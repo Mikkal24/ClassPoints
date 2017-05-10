@@ -30,6 +30,7 @@ server.listen(PORT, function() {
 
 require("./controllers/socket_controller.js")(ioProm);
 require("./controllers/users_controller.js")(app);
+require("./controllers/leaderboard_controller.js")(app);
 require("./controllers/class_controller.js")(app);
 require("./controllers/classmates_controller.js")(app);
 require("./controllers/html-routes")(app);
