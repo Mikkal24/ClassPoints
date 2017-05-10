@@ -50,18 +50,19 @@
 
         buildCard(data);
         buildScoreBoard(data);
-        $("#classSideBar").empty();
     
         //send session user data to build card function
       })
 
     socket.on("addPoint", function(userId){
       var id = ("#"+userId);
+      var asideId = ("#aside"+userId);
 
       for(var i = 0;i<currentSession.length;i++){
         if(currentSession[i].userId === userId){
           currentSession[i].points++;
           $(id).text("Points: "+currentSession[i].points);
+          $(asideId).text(currentSession[i].points);
         }
       }
     });
@@ -73,7 +74,7 @@
         var addImg = $("<img>").attr("src", "http://placehold.it/200x150").addClass("smImage");
         var innerDiv = $("<div>").addClass("caption");
         var nameHeader = $("<h3>").addClass("studentname").text(data.fName+" "+data.lName);
-        var points = $("<p>").addClass("cmStats").text("Points: "+data.points); //this should be a button that gets the userID somehow hrmmmm
+        var points = $("<div>").addClass("cmStats").text("Points: "+data.points); //this should be a button that gets the userID somehow hrmmmm
           //then it should add points to the userID that matches the card socket style I suppose
         innerDiv.append(nameHeader)
             .append(points);
@@ -82,9 +83,8 @@
 
         //store user data? not 100% sure what to do with this might be important to add points to the right user
 
-        addDiv.attr("userID", data.userId);
-        points.attr("id", data.userId);
-
+        addDiv.attr("userID",data.userId);
+        points.attr("id",data.userId);
 
         $("#main").append(addDiv);
 
@@ -99,18 +99,23 @@
     function buildScoreBoard(data){
 
       var addLi = $("<li>").addClass("rankinglist");
-      var pointBtn = $("<p>").addClass("givepointside").text(data.points);
+      var pointBtn = $("<p>").addClass("givepointside");
       var spanBtn = $("<span>").addClass("glyphicon glyphicon-plus");
       pointBtn.append(spanBtn);
-      var name = $("<p>").addClass("rankingname").text(data.fName);
-      var totalPoints = $("<p>").addClass("rankingpoint").text(data.points);
+      var name = $("<p>").addClass("rankingname").html(data.fName);
+      var totalPoints = $("<p>").addClass("rankingpoint").html(data.points);
+
+      totalPoints.attr("id","aside"+data.userId);
 
       addLi.append(pointBtn)
            .append(name)
            .append(totalPoints);
 
-
       $("#classSideBar").append(addLi);
+
+      $(addLi).on("click", function(){
+         socket.emit('addPoint', data.userId);
+      });
 
     }
 
@@ -177,10 +182,12 @@
         <h4 class="modal-title" id="loginModalLabel">Sign In</h4>
       </div>
       <div class="modal-body">
+        <form>
           <div class="form-group">
             <label for="text" class="form-control-label">Email:</label><br>
             <input type="text" id="email" name="email">
           </div>
+        </form>
         <button type="button" id= "loginBtn" class="btn btn-primary">Sign In</button>
       </div>
     </div>
@@ -218,7 +225,7 @@
     <div class="row">
         <div class="col-sm-2 sidecontainer">
             <ul class="sidebar" id ="classSideBar">
-                <li class="rankinglist">
+                <!-- <li class="rankinglist">
                     <p class="givepointside"><span class="glyphicon glyphicon-plus"></span></p>
                     <p class="rankingname">Will Hansen</p>
                     <p class="rankingpoint">50</p>
@@ -232,13 +239,14 @@
                     <p class="givepointside"><span class="glyphicon glyphicon-plus"></span></p>
                     <p class="rankingname">Jenny Chu</p>
                     <p class="rankingpoint">8</p>
-                </li>
+                </li> -->
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 main" id="main">
             
-        
-         </div>
+        </div>
+  </div>
+
 </div>
 
 
