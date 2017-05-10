@@ -66,7 +66,7 @@
             <input type="text" id="email" name="email">
           </div>
         </form>
-        <button type="button" class="btn btn-primary">Sign In</button>
+        <button type="button" id="loginBtn" class="btn btn-primary">Sign In</button>
       </div>
     </div>
   </div>
@@ -81,7 +81,7 @@
         <h4 class="modal-title" id="createuserLabel">Create User</h4>
       </div>
       <div class="modal-body">
-        <form action="/user/login" method="GET">
+        <form action="/user/newUser" method="POST">
           <div class="form-group">
             <label for="text" class="form-control-label">First Name: (required)</label><br>
             <input type="text" id="fName" name="firstname" required="true"><br>
@@ -92,8 +92,8 @@
             <label for="text" class="form-control-label">Github Link:</label><br>
             <input type="text" id="email" name="githublink">
           </div>
+          <button type="button" class="btn btn-primary">Create</button>
         </form>
-        <button type="button" class="btn btn-primary">Create</button>
       </div>
     </div>
   </div>
@@ -110,6 +110,19 @@
 <footer>
   <p id="copyright">Copyright &copy; 2017 ClassPoints</p>
 </footer>
+
+<script>
+$('#loginBtn').on("click",function(){
+  var email = $("#email").val().trim();
+  if(email){
+    $.post("/user/login", {email:email},function(data){
+      console.log(data);
+      sessionStorage.setItem("userID",data);
+      console.log(sessionStorage.getItem("userID"));
+    })
+  }
+})
+</script>
 
 </body>
 </html>
