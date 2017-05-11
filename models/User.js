@@ -43,6 +43,7 @@ module.exports = function(sequelize, DataTypes) {
 			//stores github link obviously
 			type: DataTypes.STRING,
 			allowNull: true,
+			defaultValue: 'https://github.com/',
 			validate: {
 				len:[5]
 			}
