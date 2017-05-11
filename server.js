@@ -1,6 +1,8 @@
 var express = require ('express');
 var methodOverride = require ('method-override');
 var bodyParser = require ('body-parser');
+var passport = require('passport');
+var session = require('express-session');
 
 
 var PORT = 8000;
@@ -12,6 +14,9 @@ var db = require("./models");
 
 app.use(express.static(process.cwd()+"/public"));
 app.use(bodyParser.urlencoded({extended:false}));
+app.use(session({secret: "classpoints"}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(methodOverride("_method"));
 
@@ -36,7 +41,16 @@ require("./controllers/classmates_controller.js")(app);
 require("./controllers/html-routes")(app);
 require("./controllers/session_controller.js")(app);
 require("./controllers/api-controller.js")(app);
+require("./controllers/passport_controller")(app);
 
 db.sequelize.sync({}).then(function() {
   console.log("DB connected");
+});
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
 });

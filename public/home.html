@@ -41,12 +41,12 @@
         <li><a href="/classmates">Classmates</a></li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a data-toggle="modal" data-target="#createuserModal">Create User</a></li>
-      </ul>
-      <div class="nav navbar-right">
-        <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#loginModal">Sign in</button>
-      </div>
+      <!-- <ul class="nav navbar-nav navbar-right">
+        <li><a data-toggle="modal" id = "createUsr" data-target="#createuserModal">Create User</a></li>
+      </ul> -->
+      <form class = "nav navbar-nav navbar-right" action = "/auth/google" method= "GET">
+            <input type="submit" id="Btn" class="btn btn-primary" value="Sign in with Google!">
+        </form>
     </div>
   </div>
 </nav>
@@ -64,7 +64,10 @@
             <label for="text" class="form-control-label">Email:</label><br>
             <input type="text" id="email" name="email">
           </div>
-        <button type="button" id="loginBtn" class="btn btn-primary">Sign In</button>
+          <form action = "/auth/google" method= "GET">
+            <input type="submit" id="Btn" class="btn btn-primary">
+        </form>
+          <button type="button" class="btn navbar-btn" id="googleBtn" data-toggle="modal" data-target="#loginModal">Google</button> 
       </div>
     </div>
   </div>
@@ -110,15 +113,28 @@
 </footer>
 
 <script>
-$('#loginBtn').on("click",function(){
-  var email = $("#email").val().trim();
-  if(email){
-    $.post("/user/login", {email:email},function(data){
+
+//check if logged in on page load
+$(document).ready(function(){
+  
+
+  $.get("/userData", function(data){
+    if(data){
       console.log(data);
-      sessionStorage.setItem("userID",data);
+      sessionStorage.setItem("userID",data.id);
       console.log(sessionStorage.getItem("userID"));
-    })
-  }
+      //take sign in away
+      if(sessionStorage.getItem("userID") !== "undefined"){
+        console.log(sessionStorage.getItem("userID").length);
+        // $("#loginbtn").remove();
+        // $("#createUsr").remove();
+        $(".navbar-right").empty();
+        $(".navbar-right").append($("<li>").append($("<a>").text(data.fName+" "+data.lName)));
+      }
+    } else{
+      //no data to be found here m8s
+    }
+  })
 })
 
 $('#leaderboard').on('click', function(){
