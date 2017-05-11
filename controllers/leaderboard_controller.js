@@ -2,6 +2,7 @@
 // =============================================================
 var path = require("path");
 var db = require("../models");
+var Handlebars = require('handlebars');
 
 // Routes
 // =============================================================
@@ -37,7 +38,6 @@ module.exports = function(app) {
         userArr.push({UserId: j-1, fName: data[j-1].User.fName, lName: data[j-1].User.lName, Points: userPoints});
         userPoints = 0;
       }
-      console.log(userArr);
 
       // sort userArr in desc point order
       var compare = function(a, b) {
@@ -55,7 +55,8 @@ module.exports = function(app) {
       for (var k=0; k<userArr.length; k++) {
         userArr[k].rank = k+1;
       }
-      console.log(userArr);
+
+      userArr = userArr.slice(0,10);
 
       
 
