@@ -34,6 +34,7 @@ module.exports = function(sequelize, DataTypes) {
 			//stores users' picture
 			type: DataTypes.STRING,
 			allowNull: true,
+			defaultValue: 'http://placehold.it/170x100',
 			validate: {
 				len:[10]
 			}
