@@ -21,7 +21,7 @@
 <body>
 
 <!-- Nav Bar -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -36,16 +36,16 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="leaderboard">Leaderboard <span class="sr-only">(current)</span></a></li>
-        <li><a href="classes">Classes</a></li>
-        <li><a href="classmates">Classmates</a></li>
+        <li><a href="/leaderboard">Leaderboard</a></li>
+        <li><a href="/classes">Classes</a></li>
+        <li><a href="/classmates">Classmates</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li><a data-toggle="modal" data-target="#createuserModal">Create User</a></li>
       </ul>
       <div class="nav navbar-right">
-        <button type="button" class="btn navbar-btn" id="loginbtn" data-toggle="modal" data-target="#loginModal">Sign in</button>
+        <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#loginModal">Sign in</button>
       </div>
     </div>
   </div>
@@ -119,6 +119,11 @@ $('#loginBtn').on("click",function(){
       console.log(sessionStorage.getItem("userID"));
     })
   }
+})
+
+$('#leaderboard').on('click', function(){
+  $('.navtabs').removeClass('active');
+  $('#leaderboard').addClass('active');
 })
 </script>
 

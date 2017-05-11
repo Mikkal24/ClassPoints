@@ -36,16 +36,16 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="leaderboard">Leaderboard <span class="sr-only">(current)</span></a></li>
-        <li><a href="classes">Classes</a></li>
-        <li><a href="classmates">Classmates</a></li>
+        <li id="leaderboard" class="navtabs"><a href="/leaderboard">Leaderboard</a></li>
+        <li id="classes" class="navtabs"><a href="/classes">Classes</a></li>
+        <li id="classmates" class="navtabs"><a href="/classmates">Classmates</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li><a data-toggle="modal" data-target="#createuserModal">Create User</a></li>
       </ul>
       <div class="nav navbar-right">
-        <button type="button" class="btn navbar-btn" id="loginbtn" data-toggle="modal" data-target="#loginModal">Sign in</button>
+        <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#loginModal">Sign in</button>
       </div>
     </div>
   </div>
@@ -113,6 +113,22 @@ $('#loginBtn').on("click",function(){
     })
   }
 })
+
+$('#leaderboard').on('click', function(){
+  $('.navtabs').removeClass('active');
+  $('#leaderboard').addClass('active');
+})
+
+$('#classes').on('click', function(){
+  $('.navtabs').removeClass('active');
+  $('#classes').addClass('active');
+})
+
+$('#classmates').on('click', function(){
+  $('.navtabs').removeClass('active');
+  $('#classmates').addClass('active');
+})
+
 </script>
 
 </body>

@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container mainbody">
     <div class="row">
         <div class="col-sm-12">
 
             {{#each classmate}}
-            <div class="thumbnail">
+            <div class="thumbnail usercards">
                 <img src="{{this.picture}}" alt="" class="smImage"/>
                 <div class="caption">
                 <h3 class="cmName">{{this.fName}} {{this.lName}}</h3><a href="{{this.gitLink}}" target="_blank"><span class="fa fa-github"></span></a>
-                <p class="cmStats">Score: {{this.score}} | LTP: {{this.LTP}}</p>
+                <p class="cmStats">Lifetime Points: {{this.LTP}}</p>
                 <!--<p><a href="#" class="btn btn-primary github" role="button"><span class="fa fa-github"></span></a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
                 </div>
             </div>
