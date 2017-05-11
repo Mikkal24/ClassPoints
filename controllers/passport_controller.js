@@ -13,7 +13,7 @@ var GOOGLE_CLIENT_SECRET = "BtEiMzY18rOgPscPn2RtDxmB";
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:8000/auth/google/callback"
+    callbackURL: "http://mstudiospace.com/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     console.log(profile._json.image.url);
@@ -41,7 +41,7 @@ passport.use(new GoogleStrategy({
 
 module.exports = function(app){
   app.get('/auth/google',
-    passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
+    passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] , immediate: false}));
 
   // GET /auth/google/callback
   //   Use passport.authenticate() as route middleware to authenticate the

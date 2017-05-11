@@ -52,7 +52,15 @@
         buildScoreBoard(data);
     
         //send session user data to build card function
-      })
+      });
+
+    socket.on("disconnect", function(userId){
+      var cardId = ("#card"+userId);
+      var asideId = ("#left"+userId);
+
+      $(cardId).remove();
+      $(asideId).remove();
+    })
 
     socket.on("addPoint", function(userId){
       var id = ("#"+userId);
@@ -84,6 +92,7 @@
         //store user data? not 100% sure what to do with this might be important to add points to the right user
 
         addDiv.attr("userID",data.userId);
+        addDiv.attr("id","card"+data.userId);
         points.attr("id",data.userId);
 
         $("#main").append(addDiv);
@@ -110,6 +119,8 @@
       addLi.append(pointBtn)
            .append(name)
            .append(totalPoints);
+
+      addLi.attr("id","left"+data.userId);
 
       $("#classSideBar").append(addLi);
 

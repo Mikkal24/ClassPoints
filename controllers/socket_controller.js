@@ -115,6 +115,7 @@ module.exports = function(ioProm) {
 
                         // delete them from our class object (this keeps our class object clean with only connected users)
                         sesObj[socket.classId].splice(i, 1);
+                        io.to(socket.classId).emit("disconnect", socket.userId);
                         break;
                     };
                 };
