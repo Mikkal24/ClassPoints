@@ -7,10 +7,6 @@ a {
     color: #91B3BC;
 }
 
-h3 {
-    margin: 10px 0;
-}
-
 div.mainbody {
     margin-top: 30px;
     margin-bottom: 50px
@@ -100,13 +96,12 @@ table.table-bordered {
     background-color: #e2e4e9;
 }
 
-#rankth, #scoreth, #ltpth, #joinedth {
+#rankth, #ltpth, #nameth {
     text-align: center; 
 }
 
 #nameth {
     width: 40%;
-    text-align: center; 
 }
 
 table.alltimetb {
@@ -204,7 +199,7 @@ div.usercards {
 
 .smImage {
     padding-top: 5px;
-    width: 170px;
+    width: 170px !important;
     height: 100px
 }
 
