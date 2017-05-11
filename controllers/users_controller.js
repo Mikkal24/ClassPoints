@@ -15,6 +15,15 @@ module.exports = function(app) {
 
 	});
 
+	app.get("/userData", function(req,res){
+		if(typeof req.user != "undefined"){
+		res.json(req.user[0]);
+		console.log(req.user[0]);
+		} else {
+			res.send("no data to be found here m8s");
+		}
+	})
+
 	app.post("/user/login", function(req, res) {
 		//gets called when the user logs in (finds their user record essentially)
 		db.User.findOne({

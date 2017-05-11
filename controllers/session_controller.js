@@ -9,7 +9,12 @@ module.exports = function(app) {
 
   // class route renders class page
   app.get("/classes/:id", function(req, res) {
-    res.sendFile(path.join(__dirname,"../public/session.html"))
+  	if(req.user){
+  		res.sendFile(path.join(__dirname,"../public/session.html"))
+  	} else {
+  		res.redirect("/");
+  	}
+    
   });
 
 };

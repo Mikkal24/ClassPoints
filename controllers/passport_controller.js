@@ -13,21 +13,20 @@ var GOOGLE_CLIENT_SECRET = "BtEiMzY18rOgPscPn2RtDxmB";
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:8080/auth/google/callback"
+    callbackURL: "http://localhost:8000/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
+    console.log(profile._json.image.url);
     var User = db.User;
-    console.log(accessToken);
-    console.log(profile.id);
+    //console.log(accessToken);
+    //console.log(profile.id);
        User.findOrCreate({ where: {googleId: profile.id }, defaults: {
-        fName: "Michael",
-        lName: "Sorensen",
+        fName: profile.name.givenName,
+        lName: profile.name.familyName,
         isAdmin: false,
-        email: "voltx180@gmail.com"
+        email: "voltx180@gmail.com",
+        picture: profile._json.image.url,
        }}).then(function(data) {
-         passport.serializeUser(function(user, done) {
-          done(null, data.id);
-          });
          return done (null,data);
        });
   }
@@ -50,7 +49,7 @@ module.exports = function(app){
   //   login page.  Otherwise, the primary route function function will be called,
   //   which, in this example, will redirect the user to the home page.
   app.get('/auth/google/callback', 
-    passport.authenticate('google', { failureRedirect: '/login' }),
+    passport.authenticate('google', { failureRedirect: '/' }),
     function(req, res) {
       res.redirect('/');
     });
