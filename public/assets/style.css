@@ -3,8 +3,27 @@ body {
     font-size: 16px;
 }
 
+#homemain {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#mainbgimage {
+    width: 100% !important;
+
+}
+
+h3 {
+    margin: 0;
+}
+
 a {
-    color: #91B3BC;
+    color: #85abb5;
+}
+
+a:hover, a:focus {
+    color: #2B4251;
 }
 
 div.mainbody {
@@ -29,11 +48,11 @@ ul.nav:hover {
 }
 
 .navbar-default .navbar-nav>li>a:hover {
-    color: #91B3BC;
+    color: #85abb5;
 }
 
 .navbar-default .navbar-nav>.active>a {
-    background-color: #91B3BC;
+    background-color: #85abb5;
 }
 
 .navbar-default .navbar-nav>.active>a:focus,
@@ -43,12 +62,12 @@ ul.nav:hover {
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-brand:hover {
     background-color: #2B4251;
-    color: #91B3BC;
+    color: #85abb5;
 }
 
 a.navbar-brand {
     padding: 17px 25px;
-    font-size: 24px
+    font-size: 26px;
 }
 
 #Btn {
@@ -60,7 +79,7 @@ a.navbar-brand {
 
 #Btn:hover {
     border: 2px solid #ffffff;
-    background-color: #91B3BC;
+    background-color: #85abb5;
     color: #ffffff;
 }
 
@@ -79,7 +98,7 @@ input {
 }
 
 .modalbtn:hover {
-    color: #91B3BC;
+    color: #85abb5;
     background-color: #2B4251;
     border-color: #2B4251;
 }
@@ -115,7 +134,7 @@ div.cards {
     padding: 5px;
     margin: 5px;
     width: 200px;
-    height: 130px;
+    height: 120px;
 }
 
 div.cards:hover {
@@ -125,7 +144,12 @@ div.cards:hover {
 
 .className {
     font-size: 20px;
-    padding-right: 5px;
+    padding: 0 5px;
+    margin: 0;
+}
+
+.classDate {
+    padding: 0 5px;
     margin: 0;
 }
 
@@ -135,9 +159,10 @@ div.sidecontainer {
     top: 0;
     left: 0;
     bottom: 0;
-    background-color: #dcdcdc;
+    background-color: #d1d6dc;
     padding: 70px 10px 0 10px;
     z-index: 0;
+    min-width: 250px;
 }
 
 .sidebar {
@@ -163,17 +188,18 @@ div.sidecontainer {
     margin-bottom: 5px;
 }
 
-.givepointside:hover {
-    opacity: 0.5;
-}
-
 .glyphicon-plus {
     font-size: 16px;
     padding-right: 5px;
 }
 
+li:hover {
+    cursor: default;
+}
+
 .glyphicon-plus:hover {
     cursor: pointer;
+    color: white;
 }   
 
 div.main {
@@ -184,10 +210,11 @@ div.main {
 
 #main {
     margin-top: 35px;
+    margin-left: 240px;
 }
 
 div.studentcards {
-    width: 180px;
+    width: 130px;
     cursor: pointer;
 }
 
@@ -195,11 +222,22 @@ div.studentcards:hover {
     opacity: 0.8;
 }
 
+.studentImage {
+    width: 130px !important;
+    height: auto;
+}
+
 .studentname {
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 16px;
     margin: 0;
     display: inline-block;
     padding-right: 5px;
+}
+
+.studentPts {
+    font-size: 14px;
+    line-height: 14px;
 }
 
 /* Classmates */
@@ -212,27 +250,31 @@ div.thumbnail {
 
 div.usercards {
     display: inline-block;
-    padding: 5px;
+    padding: 5px 10px;
     margin: 5px;
-    width: 200px;
-    height: 175px;
+    width: 172px;
+    height: auto;
 }
 
 .smImage {
     padding-top: 5px;
-    width: 170px !important;
-    height: auto;
+    width: 150px !important;
+    height: 150px;
+}
+
+.thumbnail>img {
+    margin: 0;
 }
 
 .thumbnail .caption {
-    padding: 7px 0;
+    padding: 3px 0 0 0;
 }
 
 .cmName {
     display: inline-block;
     padding-right: 5px;
     margin: 0;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .cmStats {
