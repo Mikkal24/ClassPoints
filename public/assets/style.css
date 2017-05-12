@@ -51,14 +51,14 @@ a.navbar-brand {
     font-size: 24px
 }
 
-#loginbtn {
+#Btn {
     background-color: #ffffff;
     color: #2B4251;
     font-size: 16px;
     padding: 8px 15px;
 }
 
-#loginbtn:hover {
+#Btn:hover {
     border: 2px solid #ffffff;
     background-color: #91B3BC;
     color: #ffffff;
