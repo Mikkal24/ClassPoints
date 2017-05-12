@@ -112,7 +112,7 @@
       var pointBtn = $("<p>").addClass("givepointside");
       var spanBtn = $("<span>").addClass("glyphicon glyphicon-plus");
       pointBtn.append(spanBtn);
-      var name = $("<p>").addClass("rankingname").html(data.fName);
+      var name = $("<p>").addClass("rankingname").text(data.fName+" "+data.lName);
       var totalPoints = $("<p>").addClass("rankingpoint").html(data.points);
 
       totalPoints.attr("id","aside"+data.userId);
@@ -125,8 +125,14 @@
 
       $("#classSideBar").append(addLi);
 
+      var currentTime;
+      var lastTime = (new Date).getTime();
       $(addLi).on("click", function(){
-         socket.emit('addPoint', data.userId);
+          currentTime = (new Data).getTime();
+          if(currentTime-lastTime>10000){
+            socket.emit('addPoint', data.userId);
+            lastTime = currentTime;
+          }
       });
 
     }

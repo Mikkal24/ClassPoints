@@ -20,7 +20,8 @@ module.exports = function(app) {
 		res.json(req.user[0]);
 		console.log(req.user[0]);
 		} else {
-			res.send("no data to be found here m8s");
+
+			res.redirect("/");
 		}
 	})
 
