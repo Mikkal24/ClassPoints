@@ -163,6 +163,10 @@ div.sidecontainer {
     margin-bottom: 5px;
 }
 
+.givepointside:hover {
+    opacity: 0.5;
+}
+
 .glyphicon-plus {
     font-size: 16px;
     padding-right: 5px;
@@ -178,13 +182,21 @@ div.main {
     z-index: 1;
 }
 
+#main {
+    margin-top: 35px;
+}
+
 div.studentcards {
     width: 180px;
     cursor: pointer;
 }
 
+div.studentcards:hover {
+    opacity: 0.8;
+}
+
 .studentname {
-    font-size: 16px;
+    font-size: 18px;
     margin: 0;
     display: inline-block;
     padding-right: 5px;
@@ -209,7 +221,11 @@ div.usercards {
 .smImage {
     padding-top: 5px;
     width: 170px !important;
-    height: 100px
+    height: auto;
+}
+
+.thumbnail .caption {
+    padding: 7px 0;
 }
 
 .cmName {
