@@ -4,21 +4,20 @@
     "password": "64da9c6f",
     "database": "heroku_4e0736191fa10fc",
     "host": "us-cdbr-iron-east-03.cleardb.net",
-    "port" : 3306,
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
+    "username": "bcec001502c58a",
+    "password": "64da9c6f",
+    "database": "heroku_4e0736191fa10fc",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "bcec001502c58a",
+    "password": "64da9c6f",
+    "database": "heroku_4e0736191fa10fc",
+    "host": "us-cdbr-iron-east-03.cleardb.net",
     "dialect": "mysql"
   }
 }
