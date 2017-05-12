@@ -42,6 +42,10 @@
       // function buildLots-O-Cards
     });
 
+    socket.on('reconnect', function() {
+      socket.emit('initialConnect', {userId: sessionStorage.getItem("userID"), classId: window.location.pathname.substr(window.location.pathname.lastIndexOf("/")+1)});
+    });
+
     // Here we need logic to add one user
     socket.on("userAdd", function(data){
       console.log("userAdd function called");
