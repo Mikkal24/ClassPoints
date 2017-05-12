@@ -80,7 +80,7 @@
     function buildCard(data){
         //builds the card
         var addDiv = $("<div>").addClass("thumbnail studentcards");
-        var addImg = $("<img>").attr("src", "http://placehold.it/200x150").addClass("smImage");
+        var addImg = $("<img>").attr("src", data.picture).addClass("smImage");
         var innerDiv = $("<div>").addClass("caption");
         var nameHeader = $("<h3>").addClass("studentname").text(data.fName+" "+data.lName);
         var points = $("<div>").addClass("cmStats").text("Points: "+data.points); //this should be a button that gets the userID somehow hrmmmm
