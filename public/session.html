@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='//fonts.googleapis.com/css?family=Arimo' rel='stylesheet'>
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
@@ -30,8 +31,6 @@
     var currentSession = [];
     // here we need logic to add all users
     socket.on('allUsers', function(data){
-      console.log("allUser function called");
-      console.log(data);
 
       currentSession = data;
 
@@ -49,19 +48,14 @@
     // });
 
     // Here we need logic to add one user
-    socket.on("userAdd", function(data){
-      console.log("userAdd function called");
-      console.log(data);
-
+    socket.on("userAdd", function(data) {
       currentSession.push(data);
-
-        buildCard(data);
-        buildScoreBoard(data);
-    
-        //send session user data to build card function
+      buildCard(data);
+      buildScoreBoard(data);
+      //send session user data to build card function
       });
 
-    socket.on("disconnect", function(userId){
+    socket.on("disconnect", function(userId) {
       var cardId = ("#card"+userId);
       var asideId = ("#left"+userId);
 
@@ -69,27 +63,26 @@
       $(asideId).remove();
     })
 
-    socket.on("addPoint", function(userId){
-      var id = ("#"+userId);
-      var asideId = ("#aside"+userId);
+    socket.on("addPoint", function(userId) {
+      var id = ("#" + userId);
+      var asideId = ("#aside" + userId);
 
-      for(var i = 0;i<currentSession.length;i++){
-        if(currentSession[i].userId === userId){
+      for(var i = 0;i<currentSession.length;i++) {
+        if(currentSession[i].userId === userId) {
           currentSession[i].points++;
-          $(id).text("Points: "+currentSession[i].points);
+          $(id).text("Points: " + currentSession[i].points);
           $(asideId).text(currentSession[i].points);
         }
       }
     });
 
-
     function buildCard(data){
         //builds the card
         var addDiv = $("<div>").addClass("thumbnail studentcards");
-        var addImg = $("<img>").attr("src", data.picture).addClass("smImage");
+        var addImg = $("<img>").attr("src", data.picture).addClass("studentImage");
         var innerDiv = $("<div>").addClass("caption");
-        var nameHeader = $("<h3>").addClass("studentname").text(data.fName+" "+data.lName);
-        var points = $("<div>").addClass("cmStats").text("Points: "+data.points); //this should be a button that gets the userID somehow hrmmmm
+        var nameHeader = $("<h3>").addClass("studentname").text(data.fName + " " + data.lName);
+        var points = $("<div>").addClass("studentPts").text("Points: " + data.points); //this should be a button that gets the userID somehow hrmmmm
           //then it should add points to the userID that matches the card socket style I suppose
         innerDiv.append(nameHeader)
             .append(points);
@@ -112,40 +105,39 @@
           }
         });
 
-        $(addDiv).on("mousedown", function(){
+        $(addDiv).on("mousedown", function() {
           this.style.borderStyle="solid";
           this.style.borderWidth="3px";
-          this.style.borderColor="#cc0033";
+          this.style.borderColor="#f3003d";
         });
 
-        $(addDiv).on("mouseup", function(){
+        $(addDiv).on("mouseup", function() {
           this.style.borderStyle="solid";
           this.style.borderWidth="1px";
-          this.style.borderColor="#ecf0f1";
+          this.style.borderColor="#d1d6dc";
         });
     }
 
-    
-
-    function buildScoreBoard(data){
+    function buildScoreBoard(data) {
 
       var addLi = $("<li>").addClass("rankinglist");
       var pointBtn = $("<p>").addClass("givepointside");
       var spanBtn = $("<span>").addClass("glyphicon glyphicon-plus");
       pointBtn.append(spanBtn);
-      var name = $("<p>").addClass("rankingname").text(data.fName+" "+data.lName);
+      var name = $("<p>").addClass("rankingname").text(data.fName + " " + data.lName);
       var totalPoints = $("<p>").addClass("rankingpoint").html(data.points);
 
-      totalPoints.attr("id","aside"+data.userId);
+      totalPoints.attr("id", "aside" + data.userId);
 
       addLi.append(pointBtn)
            .append(totalPoints)
            .append(name);
 
-      addLi.attr("id","left"+data.userId);
+      addLi.attr("id", "left" + data.userId);
 
       $("#classSideBar").append(addLi);
 
+      // add one second buffer time between giving points
       $(addLi).on("click", function(){
           currentTime = (new Date).getTime();
           console.log(currentTime-lastTime);
@@ -158,13 +150,11 @@
     }
 
 </script>
-
 <body>
 
 <!-- Nav Bar -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -191,45 +181,30 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-2 sidecontainer">
+            <h3>Ranking</h3>
             <ul class="sidebar" id ="classSideBar">
               <!--Users populate here-->
-              <li class="rankinglist">
-                    <p class="givepointside"><span class="glyphicon glyphicon-plus"></span></p>
-                    <p class="rankingname">Will Hansen</p>
-                    <p class="rankingpoint">50</p>
-                </li>
-                <li class="rankinglist">
-                    <p class="givepointside"><span class="glyphicon glyphicon-plus"></span></p>
-                    <p class="rankingname">Michael Sorensen</p>
-                    <p class="rankingpoint">48</p>
-                </li>
-                <li class="rankinglist">
-                    <p class="givepointside"><span class="glyphicon glyphicon-plus"></span></p>
-                    <p class="rankingname">Jenny Chu</p>
-                    <p class="rankingpoint">8</p>
-                </li>
             </ul>
         </div>
         <div class="col-sm-10 col-sm-offset-2 main" id="main">
-            
+            <!--student cards go here-->
         </div>
   </div>
-
 </div>
 
 
-    <script>
-        $('#loginBtn').on("click",function(){
-          var email = $("#email").val().trim();
-          if(email){
-            $.post("/user/login", {email:email},function(data){
-              console.log(data);
-              sessionStorage.setItem("userID",data);
-              console.log(sessionStorage.getItem("userID"));
-            })
-          }
+<script>
+    $('#loginBtn').on("click",function(){
+      var email = $("#email").val().trim();
+      if(email){
+        $.post("/user/login", {email:email},function(data){
+          console.log(data);
+          sessionStorage.setItem("userID",data);
+          console.log(sessionStorage.getItem("userID"));
         })
-    </script>
+      }
+    })
+</script>
 </body>
 </html>
 

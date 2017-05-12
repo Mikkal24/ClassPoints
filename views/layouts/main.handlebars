@@ -73,8 +73,6 @@ $(document).ready(function(){
       //take sign in away
       if(sessionStorage.getItem("userID") !== "undefined"){
         console.log(sessionStorage.getItem("userID").length);
-        // $("#loginbtn").remove();
-        // $("#createUsr").remove();
         $(".navbar-right").empty();
         $(".navbar-right").append($("<li>").append($("<a>").text(data.fName+" "+data.lName)));
       }
