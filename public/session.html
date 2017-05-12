@@ -22,7 +22,8 @@
   var socket = io();
 
   // here we need logic to pull the user id from session storage and class id from url
-  socket.emit('initialConnect', {userId: sessionStorage.getItem("userID"), classId: 1});
+  socket.emit('initialConnect', {userId: sessionStorage.getItem("userID"), classId: window.location.pathname.substr(window.location.pathname.lastIndexOf("/")+1)});
+  // socket.emit('initialConnect', {userId: 1, classId: 1});
     //keep in mind that it will call sessionStorage.getItem(userID);
     var currentSession = [];
     // here we need logic to add all users
