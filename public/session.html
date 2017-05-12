@@ -19,7 +19,7 @@
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 
 <script>
-  var socket = io();
+  var socket = io({'reconnection': false});
 
   // here we need logic to pull the user id from session storage and class id from url
   socket.emit('initialConnect', {userId: sessionStorage.getItem("userID"), classId: window.location.pathname.substr(window.location.pathname.lastIndexOf("/")+1)});
@@ -42,9 +42,9 @@
       // function buildLots-O-Cards
     });
 
-    socket.on('reconnect', function() {
-      socket.emit('initialConnect', {userId: sessionStorage.getItem("userID"), classId: window.location.pathname.substr(window.location.pathname.lastIndexOf("/")+1)});
-    });
+    // socket.on('reconnect', function() {
+    //   socket.emit('initialConnect', {userId: sessionStorage.getItem("userID"), classId: window.location.pathname.substr(window.location.pathname.lastIndexOf("/")+1)});
+    // });
 
     // Here we need logic to add one user
     socket.on("userAdd", function(data){
