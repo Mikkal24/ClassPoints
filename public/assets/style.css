@@ -172,6 +172,7 @@ div.main {
 
 div.studentcards {
     width: 180px;
+    cursor: pointer;
 }
 
 .studentname {

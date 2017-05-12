@@ -111,6 +111,16 @@
               lastTime = currentTime;
           }
         });
+
+        $(addDiv).on("mousedown", function(){
+          this.style.borderStyle="solid";
+          this.style.borderWidth="3px";
+          this.style.borderColor="green";
+        });
+
+        $(addDiv).on("mouseup", function(){
+          this.style.borderStyle="none";
+        });
     }
 
     
