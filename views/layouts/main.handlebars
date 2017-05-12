@@ -77,7 +77,8 @@ $(document).ready(function(){
         $(".navbar-right").append($("<li>").append($("<a>").text(data.fName+" "+data.lName)));
       }
     } else{
-      //no data to be found here m8s
+      console.log("should have been sent to the home page");
+      window.location.replace("/");
     }
   })
 })

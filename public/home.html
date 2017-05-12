@@ -91,7 +91,6 @@ $(document).ready(function(){
   
 
   $.get("/userData", function(data){
-    if(data){
       console.log(data);
       sessionStorage.setItem("userID",data.id);
       console.log(sessionStorage.getItem("userID"));
@@ -104,11 +103,8 @@ $(document).ready(function(){
         $(".navbar-right").empty();
         $(".navbar-right").append($("<li>").append($("<a>").text(data.fName+" "+data.lName)));
       }
-    } else{
-      //no data to be found here m8s
-    }
-  })
-})
+  });
+});
 
 $('#leaderboard').on('click', function(){
   $('.navtabs').removeClass('active');

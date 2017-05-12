@@ -3,6 +3,7 @@ var methodOverride = require ('method-override');
 var bodyParser = require ('body-parser');
 var passport = require('passport');
 var session = require('express-session');
+var path = require('path');
 
 
 var PORT = 8080;

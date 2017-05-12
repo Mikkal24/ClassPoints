@@ -1,5 +1,6 @@
 var express = require('express');
 var db = require("../models");
+var path = require("path");
 
 module.exports = function(app) {
 	app.get("/user", function(req, res) {
@@ -20,9 +21,13 @@ module.exports = function(app) {
 		res.json(req.user[0]);
 		console.log(req.user[0]);
 		} else {
-
-			res.redirect("/");
+			//console.log("should have been sent to the home page");
+			res.send(false);
 		}
+	})
+
+	app.post("/failedLogin", function(req,res){
+		res.redirect("/");
 	})
 
 	app.post("/user/login", function(req, res) {

@@ -203,7 +203,29 @@
           console.log(sessionStorage.getItem("userID"));
         })
       }
-    })
+    });
+
+  $(document).ready(function(){
+
+      $.get("/userData", function(data){
+        if(data){
+          console.log(data);
+          sessionStorage.setItem("userID",data.id);
+          console.log(sessionStorage.getItem("userID"));
+
+          //take sign in away
+          if(sessionStorage.getItem("userID") !== "undefined"){
+            console.log(sessionStorage.getItem("userID").length);
+            // $("#loginbtn").remove();
+            // $("#createUsr").remove();
+            $(".navbar-right").empty();
+            $(".navbar-right").append($("<li>").text(data.fName+" "+data.lName));
+          }
+        } else{
+          window.location.replace("/");
+        }
+      })
+    });
 </script>
 </body>
 </html>
