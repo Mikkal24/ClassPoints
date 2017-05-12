@@ -13,7 +13,7 @@ var GOOGLE_CLIENT_SECRET = "BtEiMzY18rOgPscPn2RtDxmB";
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:8080/auth/google/callback"
+    callbackURL: "https://pacific-sands-66113.herokuapp.com/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     console.log(profile._json.image.url);
