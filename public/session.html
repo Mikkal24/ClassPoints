@@ -121,14 +121,18 @@
       var pointBtn = $("<p>").addClass("givepointside");
       var spanBtn = $("<span>").addClass("glyphicon glyphicon-plus");
       pointBtn.append(spanBtn);
+<<<<<<< Updated upstream
       var name = $("<p>").addClass("rankingname").text(data.fName+" "+data.lName);
+=======
+      var name = $("<p>").addClass("rankingname").html(data.fName + " " + data.lName);
+>>>>>>> Stashed changes
       var totalPoints = $("<p>").addClass("rankingpoint").html(data.points);
 
       totalPoints.attr("id","aside"+data.userId);
 
       addLi.append(pointBtn)
-           .append(name)
-           .append(totalPoints);
+           .append(totalPoints)
+           .append(name);
 
       addLi.attr("id","left"+data.userId);
 
@@ -232,7 +236,8 @@
     <div class="row">
         <div class="col-sm-2 sidecontainer">
             <ul class="sidebar" id ="classSideBar">
-                <!-- <li class="rankinglist">
+              <!--Users populate here-->
+              <li class="rankinglist">
                     <p class="givepointside"><span class="glyphicon glyphicon-plus"></span></p>
                     <p class="rankingname">Will Hansen</p>
                     <p class="rankingpoint">50</p>
@@ -246,7 +251,7 @@
                     <p class="givepointside"><span class="glyphicon glyphicon-plus"></span></p>
                     <p class="rankingname">Jenny Chu</p>
                     <p class="rankingpoint">8</p>
-                </li> -->
+                </li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 main" id="main">

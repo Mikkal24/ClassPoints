@@ -17,6 +17,7 @@ nav.navbar {
     border-radius: 0;
     margin-bottom: 0;
     background-color: #2B4251;
+    z-index: 2;
 }
 
 ul.nav:hover {
@@ -131,11 +132,12 @@ div.cards:hover {
 /* Sessions */
 div.sidecontainer {
     position: fixed;
-    top: 60px;
+    top: 0;
     left: 0;
     bottom: 0;
     background-color: #dcdcdc;
-    padding: 0 10px;
+    padding: 70px 10px 0 10px;
+    z-index: 0;
 }
 
 .sidebar {
@@ -151,8 +153,9 @@ div.sidecontainer {
 
 .rankingpoint {
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 5px;
+    padding-right: 5px;
 }
 
 .givepointside {
@@ -165,9 +168,14 @@ div.sidecontainer {
     padding-right: 5px;
 }
 
+.glyphicon-plus:hover {
+    cursor: pointer;
+}   
+
 div.main {
     margin-top: 70px;
     padding: 0;
+    z-index: 1;
 }
 
 div.studentcards {
