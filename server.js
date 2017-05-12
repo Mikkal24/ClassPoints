@@ -6,7 +6,7 @@ var session = require('express-session');
 var path = require('path');
 
 
-var PORT = 8080;
+var PORT = process.env.PORT || 5000;
 
 var app = express();
 
