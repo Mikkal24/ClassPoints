@@ -15,30 +15,26 @@ module.exports = function(app) {
         {model: db.User, as: 'User'}
       ]
     }).then(function(data) {
-      
+
       var userArr = [];
-      var uid = 1;
-      var userPoints = 0;
-      // logic to sum points by userid then display only top 10
-      // find highest userid
-      var highuid = 0;
+
       for (var i=0; i<data.length; i++) {
-        if (data[i].UserId > highuid) {
-          highuid = data[i].UserId
-        }
-      }
-      // sum points by userid
-      for (var j=1; j<highuid+1; j++) {
-        // add all points for a given user
-        for (var i=0; i<data.length; i++) {
-          if (data[i].UserId == j) {
-            userPoints += data[i].points;
-          }
-        }
-        console.log(i);
-        userArr.push({UserId: j-1, fName: data[j-1].User.fName, lName: data[j-1].User.lName, Points: userPoints});
-        userPoints = 0;
-      }
+        if (userArr.length === 0){
+          userArr.push({UserId: data[i].UserId, fName: data[i].User.fName, lName: data[i].User.lName, Points: data[i].points});
+          continue;
+        };
+        var found = false
+        for(var j=0; j<userArr.length; j++){
+          if (userArr[j].UserId === data[i].UserId){
+            userArr[j].Points += data[i].points;
+            found = true;
+          };
+        };
+        if (!found){
+          userArr.push({UserId: data[i].UserId, fName: data[i].User.fName, lName: data[i].User.lName, Points: data[i].points});
+        };
+
+      };
 
       // sort userArr in desc point order
       var compare = function(a, b) {
@@ -58,8 +54,6 @@ module.exports = function(app) {
       }
 
       userArr = userArr.slice(0,10);
-
-      
 
       var hbsObject = {
         leaders: userArr
