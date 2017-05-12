@@ -3,7 +3,7 @@
     "username": "bcec001502c58a",
     "password": "64da9c6f",
     "database": "heroku_4e0736191fa10fc",
-    "host": "http://us-cdbr-iron-east-03.cleardb.net",
+    "host": "us-cdbr-iron-east-03.cleardb.net",
     "dialect": "mysql"
   },
   "test": {
