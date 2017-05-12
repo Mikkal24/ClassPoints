@@ -35,6 +35,7 @@ module.exports = function(app) {
             userPoints += data[i].points;
           }
         }
+        console.log(i);
         userArr.push({UserId: j-1, fName: data[j-1].User.fName, lName: data[j-1].User.lName, Points: userPoints});
         userPoints = 0;
       }

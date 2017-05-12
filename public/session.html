@@ -19,6 +19,8 @@
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 
 <script>
+  var currentTime;
+  var lastTime = (new Date).getTime();
   var socket = io({'reconnection': false});
 
   // here we need logic to pull the user id from session storage and class id from url
@@ -103,8 +105,11 @@
         $("#main").append(addDiv);
 
         $(addDiv).on("click", function(){
-           console.log(addDiv.attr("userID")+" was clicked");
-           socket.emit('addPoint', data.userId);
+           currentTime = (new Date).getTime();
+           if(currentTime - lastTime > 1000){
+              socket.emit('addPoint', data.userId);
+              lastTime = currentTime;
+          }
         });
     }
 
@@ -129,11 +134,10 @@
 
       $("#classSideBar").append(addLi);
 
-      var currentTime;
-      var lastTime = (new Date).getTime();
       $(addLi).on("click", function(){
-          currentTime = (new Data).getTime();
-          if(currentTime-lastTime>10000){
+          currentTime = (new Date).getTime();
+          console.log(currentTime-lastTime);
+          if(currentTime-lastTime>1000){
             socket.emit('addPoint', data.userId);
             lastTime = currentTime;
           }
