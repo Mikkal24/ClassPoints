@@ -40,65 +40,12 @@
         <li id="classes" class="navtabs"><a href="/classes">Classes</a></li>
         <li id="classmates" class="navtabs"><a href="/classmates">Classmates</a></li>
       </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li><a data-toggle="modal" data-target="#createuserModal">Create User</a></li>
-      </ul>
-      <div class="nav navbar-right">
-        <button type="button" class="btn navbar-btn" id="loginbtn" data-toggle="modal" data-target="#loginModal">Sign in</button>
-      </div>
+      <form class="nav navbar-nav navbar-right" action="/auth/google" method="GET">
+          <input type="submit" id="Btn" class="btn navbar-btn" value="Google Sign In">
+      </form>
     </div>
   </div>
 </nav>
-
-<!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="loginModalLabel">Sign In</h4>
-      </div>
-      <div class="modal-body">
-          <div class="form-group">
-            <label for="text" class="form-control-label">Email:</label><br>
-            <input type="text" id="email" name="email">
-          </div>
-      </div>
-        <button type="button" id = "loginBtn" class="btn btn-primary">Sign In</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Create User Modal -->
-<div class="modal fade" id="createuserModal" tabindex="-1" role="dialog" aria-labelledby="createuserModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="createuserLabel">Create User</h4>
-      </div>
-      <div class="modal-body">
-        <form action="/user/newUser" method="POST">
-          <div class="form-group">
-            <label for="text" class="form-control-label">First Name: (required)</label><br>
-            <input type="text" id="fName" name="firstname" required="true"><br>
-            <label for="text" class="form-control-label">Last Name: (required)</label><br>
-            <input type="text" id="lName" name="lastname"><br>
-            <label for="text" class="form-control-label">Email: (required)</label><br>
-            <input type="text" id="lName" name="email"><br>
-            <label for="text" class="form-control-label">Github Link:</label><br>
-            <input type="text" id="email" name="githublink"><br>
-            <label for="text" class="form-control-label">Picture Link:</label><br>
-            <input type="text" id="email" name="picture">
-          </div>
-          <button type="submit" class="btn btn-primary">Create</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 
 {{{ body }}}
 
@@ -136,22 +83,6 @@ $(document).ready(function(){
     }
   })
 })
-
-$('#leaderboard').on('click', function(){
-  $('.navtabs').removeClass('active');
-  $('#leaderboard').addClass('active');
-})
-
-$('#classes').on('click', function(){
-  $('.navtabs').removeClass('active');
-  $('#classes').addClass('active');
-})
-
-$('#classmates').on('click', function(){
-  $('.navtabs').removeClass('active');
-  $('#classmates').addClass('active');
-})
-
 </script>
 
 </body>
