@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>ClassPoints</title>
+    <title>ClassPoints - Gamifying the Traditional Classroom Learning System</title>
+    <meta name="description" content="Giving">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <!-- Icons -->
@@ -38,7 +39,8 @@
         <li><a href="/classes">Classes</a></li>
         <li><a href="/classmates">Classmates</a></li>
       </ul>
-      <ul id ="googleID" class="nav navbar-nav navbar-right"></ul>
+      <ul id ="googleID" class="nav navbar-nav navbar-right">
+      </ul>
     </div>
   </div>
 </nav>
@@ -71,15 +73,10 @@ $(document).ready(function(){
         console.log(sessionStorage.getItem("userID").length);
         $("#googlesignin").remove();
         $("#googleID").empty();
-        $("#googleID").append($("<li>").text(data.fName+" "+data.lName));
-        $("#googleID").append($("<li>").append($("<img>").attr("src",data.picture)));
+        $("#googleID").append($("<li class='align-middle'>").text(data.fName + " " + data.lName));
+        $("#googleID").append($("<li class='align-middle'>>").append($("<img>").attr("src",data.picture)));
       }
   });
-});
-
-$('#leaderboard').on('click', function(){
-  $('.navtabs').removeClass('active');
-  $('#leaderboard').addClass('active');
 });
 </script>
 
