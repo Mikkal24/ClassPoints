@@ -40,8 +40,8 @@
         <li><a href="/classmates">Classmates</a></li>
       </ul>
       <ul class="nav navbar-nav" id="googleID">
-        <li class="googleName">Jenny Chu</li>
-        <li class="googlePic"><img src="http://placehold.it/50x50" alt="" /></li>
+        <!--<li class="googleName">Jenny Chu</li>
+        <li class="googlePic"><img src="http://placehold.it/50x50" alt="" /></li>-->
       </ul>
     </div>
   </div>
@@ -53,7 +53,7 @@
   <div class="row">
       <div class="col-sm-12">
         <form action="/auth/google" method="GET" id="googlesignin" class="text-center">
-          <input type="submit" id="Btn" class="btn navbar-btn" value="SIGN IN WITH GOOGLE">
+          <input type="submit" id="Btn" class="btn" value="SIGN IN WITH GOOGLE">
       </form>
       </div>
   </div>
@@ -64,7 +64,6 @@
 //check if logged in on page load
 $(document).ready(function(){
   
-
   $.get("/userData", function(data){
       console.log(data);
       sessionStorage.setItem("userID",data.id);
