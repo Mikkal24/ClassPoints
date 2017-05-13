@@ -30,8 +30,12 @@ Implementation??
 4. Users will be able to see a history of past sessions
 5. Badges (and/or borders) will be awarded based on performance 
  - needs more detail
+ 
+# Database Diagram (current)
 
-# Database Diagram (as far as I could understand it)
+![UML](http://i.imgur.com/QvGhmI9.png?1 "DB UML Diagram")
+
+# Database Diagram (Original)
 
 
 ![UML](http://i.imgur.com/YQROm9i.png?1 "DB UML Diagram")
