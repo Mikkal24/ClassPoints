@@ -53,6 +53,22 @@ a:hover, a:focus {
     max-width: 100%;
 }
 
+#Btn {
+    background-color: #000000;
+    background-color:rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 10px 22px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 24px;
+}
+
+#Btn:hover {
+    cursor: pointer;
+}
+
 /* Nav */
 nav.navbar {
     border-radius: 0;
@@ -91,32 +107,14 @@ a.navbar-brand {
     padding: 17px 25px;
     font-size: 26px;
 }
-/*
-#Btn {
-    background-color: #ffffff;
-    color: #2B4251;
-    font-size: 26px;
-    padding: 8px 15px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 30px;
-    border: 3px solid #2B4251;
-}*/
 
-#Btn {
-    background-color: #000000;
-    background-color:rgba(0, 0, 0, 0.7);
-    color: #ffffff;
-    font-size: 20px;
-    letter-spacing: 1px;
-    padding: 8px 20px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 24px;
+#googleID{
+    color: #85abb5;
+    height: 100%;
 }
 
-#Btn:hover {
-    cursor: pointer;
+#googleID>li {
+
 }
 
 /* Modals */
@@ -244,6 +242,10 @@ div.main {
     z-index: 1;
 }
 
+div.mainbody {
+    margin-top: 50px;
+}
+
 #main {
     margin-top: 35px;
     margin-left: 240px;
@@ -337,8 +339,4 @@ footer {
 
 #copyright {
     margin: 5px 0;
-}
-
-#googleID{
-    color: #85abb5;
 }
