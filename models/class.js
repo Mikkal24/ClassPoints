@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
       classMethods: {
         associate: function(models) {
           // One to many relationship to our session table
-          Class.hasMany(models.Session, {foreignKey: ClassId});
+          Class.hasMany(models.Session, {foreignKey: "ClassId"});
         }
       }
     });
