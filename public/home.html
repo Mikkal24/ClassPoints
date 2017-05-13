@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <title>ClassPoints - Gamifying the Traditional Classroom Learning System</title>
-    <meta name="description" content="Giving">
+    <title>ClassPoints Interactive Learning - Gamifying the Traditional Classroom Learning Experience</title>
+    <meta name="description" content="Changing the ways students learn in traditional classroom settings. ClassPoints is an interactive learning platform where students are encouraged to participate in class.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <!-- Icons -->
@@ -39,7 +39,9 @@
         <li><a href="/classes">Classes</a></li>
         <li><a href="/classmates">Classmates</a></li>
       </ul>
-      <ul id ="googleID" class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav" id="googleID">
+        <li class="googleName">Jenny Chu</li>
+        <li class="googlePic"><img src="http://placehold.it/50x50" alt="" /></li>
       </ul>
     </div>
   </div>
@@ -73,8 +75,8 @@ $(document).ready(function(){
         console.log(sessionStorage.getItem("userID").length);
         $("#googlesignin").remove();
         $("#googleID").empty();
-        $("#googleID").append($("<li class='align-middle'>").text(data.fName + " " + data.lName));
-        $("#googleID").append($("<li class='align-middle'>>").append($("<img>").attr("src",data.picture)));
+        $("#googleID").append($("<li class='googleName'>").text(data.fName + " " + data.lName));
+        $("#googleID").append($("<li class='googlePic'>").append($("<img class='googleimg'>").attr("src",data.picture).attr("alt", "")));
       }
   });
 });
