@@ -20,8 +20,8 @@ module.exports = function(sequelize, DataTypes) {
       classMethods: {
         associate: function(models) {
           // Foreign keys are added
-          Session.belongsTo(models.Class, {foreignKey: "id"});
-          Session.belongsTo(models.User, {foreignKey: "id"});
+          Session.belongsTo(models.Class, {foreignKey: "ClassId"});
+          Session.belongsTo(models.User, {foreignKey: "UserId"});
         }
       }
     }
