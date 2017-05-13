@@ -38,6 +38,7 @@
         <li><a href="/classes">Classes</a></li>
         <li><a href="/classmates">Classmates</a></li>
       </ul>
+      <ul id ="googleID" class="nav navbar-nav navbar-right"></ul>
     </div>
   </div>
 </nav>
@@ -68,10 +69,10 @@ $(document).ready(function(){
       //take sign in away
       if(sessionStorage.getItem("userID") !== "undefined"){
         console.log(sessionStorage.getItem("userID").length);
-        // $("#loginbtn").remove();
-        // $("#createUsr").remove();
-        $(".navbar-right").empty();
-        $(".navbar-right").append($("<li>").append($("<a>").text(data.fName+" "+data.lName)));
+        $("#googlesignin").remove();
+        $("#googleID").empty();
+        $("#googleID").append($("<li>").text(data.fName+" "+data.lName));
+        $("#googleID").append($("<li>").append($("<img>").attr("src",data.picture)));
       }
   });
 });
