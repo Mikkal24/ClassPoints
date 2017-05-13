@@ -59,6 +59,13 @@
       var cardId = ("#card"+userId);
       var asideId = ("#left"+userId);
 
+      for(var i = 0;i<currentSession.length;i++) {
+        if(currentSession[i].userId === userId) {
+          currentSession.splice(i, 1);
+        }
+      }
+
+
       $(cardId).remove();
       $(asideId).remove();
     })
