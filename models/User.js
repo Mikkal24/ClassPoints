@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
 			//stores first name (at least 3 letters)
 			type: DataTypes.STRING,
 			allowNull: false,
+			defaultValue: " ",
 			validate: {
 				len:[3]
 			}
@@ -12,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
 			//stores last name (at least 2 letters)
 			type: DataTypes.STRING,
 			allowNull: false,
+			defaultValue: " ",
 			validate: {
 				len:[2]
 			}
