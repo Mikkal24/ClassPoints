@@ -54,7 +54,6 @@ a:hover, a:focus {
 }
 
 #Btn {
-    background-color: #000000;
     background-color:rgba(0, 0, 0, 0.7);
     color: #ffffff;
     font-size: 16px;
@@ -109,12 +108,7 @@ a.navbar-brand {
 }
 
 #googleID{
-    color: #85abb5;
-    height: 100%;
-}
-
-#googleID>li {
-
+    float: right;
 }
 
 /* Modals */
@@ -339,4 +333,20 @@ footer {
 
 #copyright {
     margin: 5px 0;
+}
+
+@media (min-width: 768px) {
+    .googleName {
+        padding-top: 19.5px;
+        padding-bottom: 19.5px;
+        padding-right: 10px;
+        position: relative;
+        color: #ffffff;
+    }
+    
+    .googlePic {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        position: relative;
+    }
 }
